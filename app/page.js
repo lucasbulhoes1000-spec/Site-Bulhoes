@@ -40,12 +40,6 @@ export default function Home() {
     ["Dra. XXXXX", "Odontologia Clínica", "CRO XXXXX"],
   ];
 
-  const cases = [
-    ["Lentes em Resina", "DEPOIMENTO REAL DA PACIENTE"],
-    ["Lentes em Porcelana", "DEPOIMENTO REAL DA PACIENTE"],
-    ["Retratamento de Lentes", "DEPOIMENTO REAL DA PACIENTE"],
-  ];
-
   return (
     <>
       <header className="header">
@@ -76,7 +70,7 @@ export default function Home() {
       </header>
 
       <main>
-        {/* BLOCO 1 — HERO */}
+        {/* HERO */}
         <section id="inicio" className="section hero">
           <div className="heroPhoto">
             <img
@@ -113,7 +107,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 2 — AUTORIDADE */}
+        {/* AUTORIDADE */}
         <section id="lentes" className="section trust">
           <div className="trustCopy">
             <p className="eyebrow">
@@ -161,7 +155,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 3 — MÉTODO BULHÕES */}
+        {/* MÉTODO BULHÕES */}
         <section id="metodo" className="method">
           <div className="methodIntro">
             <p className="eyebrow">
@@ -239,7 +233,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 4 — RESULTADOS */}
+        {/* RESULTADOS */}
         <section id="resultados" className="section results">
           <div className="sectionHead">
             <p className="eyebrow">
@@ -256,24 +250,63 @@ export default function Home() {
           </div>
 
           <div className="cases">
-            {cases.map(([title, quote]) => (
-              <article className="case" key={title}>
-                <div className="beforeAfter">
-                  <Img label="ANTES" />
-                  <Img label="DEPOIS" />
+            {/* CASO 1 */}
+            <article className="case">
+              <div className="beforeAfter">
+                <Img label="ANTES" />
+                <Img label="DEPOIS" />
+              </div>
+
+              <h3>Lentes em Resina</h3>
+
+              <div className="testimonial">
+                <span>◉ @paciente</span>
+                <p>Inserir depoimento real da paciente.</p>
+              </div>
+            </article>
+
+            {/* CASO 2 */}
+            <article className="case">
+              <div className="beforeAfter">
+                <Img label="ANTES" />
+                <Img label="DEPOIS" />
+              </div>
+
+              <h3>Lentes em Porcelana</h3>
+
+              <div className="testimonial">
+                <span>◉ @paciente</span>
+                <p>Inserir depoimento real da paciente.</p>
+              </div>
+            </article>
+
+            {/* CASO 3 — RETRATAMENTO REAL */}
+            <article className="case">
+              <div className="beforeAfter">
+                <div className="casePhoto">
+                  <img
+                    src="/resultado-retratamento-antes.jpg"
+                    alt="Antes do retratamento de lentes de contato dental"
+                  />
                 </div>
 
-                <h3>{title}</h3>
-
-                <div className="testimonial">
-                  <span>◉ @paciente</span>
-
-                  <p>
-                    “{quote} — inserir print/depoimento aqui.”
-                  </p>
+                <div className="casePhoto">
+                  <img
+                    src="/resultado-retratamento-depois.jpg"
+                    alt="Depois do retratamento de lentes de contato dental"
+                  />
                 </div>
-              </article>
-            ))}
+              </div>
+
+              <h3>Retratamento de Lentes</h3>
+
+              <div className="testimonial">
+                <span>◉ @paciente</span>
+                <p>
+                  Inserir aqui o depoimento real deste paciente.
+                </p>
+              </div>
+            </article>
           </div>
 
           <div className="center">
@@ -281,7 +314,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 5 — EQUIPE */}
+        {/* EQUIPE */}
         <section id="equipe" className="section team">
           <div className="sectionHead">
             <p className="eyebrow">
@@ -319,7 +352,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 6 — CLÍNICA */}
+        {/* CLÍNICA */}
         <section id="clinica" className="clinic">
           <div className="sectionHead">
             <p className="eyebrow">
@@ -347,7 +380,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 7 — TRATAMENTOS */}
+        {/* TRATAMENTOS */}
         <section id="tratamentos" className="section treatments">
           <div className="sectionHead">
             <p className="eyebrow">
@@ -366,6 +399,7 @@ export default function Home() {
           </div>
 
           <div className="treatmentGrid">
+            {/* TRATAMENTOS CLÍNICOS */}
             <article>
               <Img label="TRATAMENTOS CLÍNICOS" />
 
@@ -378,8 +412,14 @@ export default function Home() {
               </p>
             </article>
 
+            {/* HARMONIZAÇÃO FACIAL REAL */}
             <article>
-              <Img label="HARMONIZAÇÃO FACIAL" />
+              <div className="treatmentPhoto">
+                <img
+                  src="/harmonizacao-facial.png"
+                  alt="Antes e depois de harmonização facial na Bulhões Odontologia"
+                />
+              </div>
 
               <h3>
                 Harmonização Facial
@@ -390,6 +430,7 @@ export default function Home() {
               </p>
             </article>
 
+            {/* IMPLANTES */}
             <article>
               <Img label="IMPLANTES" />
 
@@ -408,7 +449,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 8 — ENDEREÇO */}
+        {/* ENDEREÇO */}
         <section id="endereco" className="location">
           <div className="sectionHead">
             <p className="eyebrow">
@@ -460,17 +501,9 @@ export default function Home() {
 
       <footer>
         <div className="footerBrand">
-          <strong>
-            BULHÕES
-          </strong>
-
-          <span>
-            ODONTOLOGIA
-          </span>
-
-          <em>
-            Naturalidade é o nosso maior luxo.
-          </em>
+          <strong>BULHÕES</strong>
+          <span>ODONTOLOGIA</span>
+          <em>Naturalidade é o nosso maior luxo.</em>
         </div>
 
         <div>
