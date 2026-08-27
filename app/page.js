@@ -85,8 +85,8 @@ export default function Home() {
             </p>
 
             <h1>
-              Você quer colocar lentes de contato dental, mas tem medo de
-              ficar artificial?
+              Você quer colocar lentes de contato dental, mas tem medo de ficar
+              artificial?
             </h1>
 
             <p>
@@ -121,18 +121,14 @@ export default function Home() {
               <li>
                 Experiência em mais de 2.000 casos de lentes de contato dental
               </li>
-
               <li>Metodologia própria: Método Bulhões</li>
-
               <li>
                 Acompanhamento humanizado do planejamento ao pós-procedimento
               </li>
-
               <li>
                 Resultados naturais, planejados para aliar estética e
                 durabilidade
               </li>
-
               <li>
                 Corpo clínico multidisciplinar trabalhando de forma integrada
               </li>
@@ -151,7 +147,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MÉTODO BULHÕES */}
+        {/* MÉTODO */}
         <section id="metodo" className="method">
           <div className="methodIntro">
             <p className="eyebrow">MÉTODO BULHÕES</p>
@@ -162,9 +158,9 @@ export default function Home() {
 
             <p>
               Através do <b>Método Bulhões</b>, nosso planejamento considera
-              muito mais do que os dentes. Analisamos o sorriso em conjunto
-              com as características do rosto, buscando entender a imagem que
-              cada paciente deseja transmitir para construir um resultado
+              muito mais do que os dentes. Analisamos o sorriso em conjunto com
+              as características do rosto, buscando entender a imagem que cada
+              paciente deseja transmitir para construir um resultado
               verdadeiramente individual.
             </p>
           </div>
@@ -175,9 +171,7 @@ export default function Home() {
             <div className="labels">
               <div>
                 <b>Cor dos olhos</b>
-                <span>
-                  Leitura de harmonia e características do rosto.
-                </span>
+                <span>Leitura de harmonia e características do rosto.</span>
               </div>
 
               <div>
@@ -245,14 +239,14 @@ export default function Home() {
               <div className="beforeAfter">
                 <div className="casePhoto">
                   <img
-                    src="/antes-resina.JPG"
+                    src="/antes-resina.jpg"
                     alt="Antes das lentes em resina"
                   />
                 </div>
 
                 <div className="casePhoto">
                   <img
-                    src="/depois-resina.JPG"
+                    src="/depois-resina.jpg"
                     alt="Depois das lentes em resina"
                   />
                 </div>
@@ -271,14 +265,14 @@ export default function Home() {
               <div className="beforeAfter">
                 <div className="casePhoto">
                   <img
-                    src="/antes-porcelana.JPG"
+                    src="/antes-porcelana.jpg"
                     alt="Antes das lentes em porcelana"
                   />
                 </div>
 
                 <div className="casePhoto">
                   <img
-                    src="/depois-porcelana.JPG"
+                    src="/depois-porcelana.jpg"
                     alt="Depois das lentes em porcelana"
                   />
                 </div>
@@ -397,7 +391,6 @@ export default function Home() {
           </div>
 
           <div className="treatmentGrid">
-
             {/* TRATAMENTOS CLÍNICOS */}
             <article>
               <div className="treatmentPhoto">
@@ -409,9 +402,7 @@ export default function Home() {
 
               <h3>Tratamentos Clínicos</h3>
 
-              <p>
-                Saúde, prevenção e cuidado contínuo do sorriso.
-              </p>
+              <p>Saúde, prevenção e cuidado contínuo do sorriso.</p>
             </article>
 
             {/* HARMONIZAÇÃO */}
@@ -419,7 +410,7 @@ export default function Home() {
               <div className="treatmentPhoto">
                 <img
                   src="/harmonizacao-facial.PNG"
-                  alt="Antes e depois de harmonização facial na Bulhões Odontologia"
+                  alt="Harmonização facial na Bulhões Odontologia"
                 />
               </div>
 
@@ -434,16 +425,14 @@ export default function Home() {
             <article>
               <div className="treatmentPhoto">
                 <img
-                  src="/Implantes.JPG"
+                  src="/implantes.jpg"
                   alt="Implantes dentários na Bulhões Odontologia"
                 />
               </div>
 
               <h3>Implantes</h3>
 
-              <p>
-                Reabilitação do sorriso unindo função e estética.
-              </p>
+              <p>Reabilitação do sorriso unindo função e estética.</p>
             </article>
           </div>
 
@@ -460,26 +449,28 @@ export default function Home() {
             <h2>Como chegar à Bulhões?</h2>
 
             <p>
-              Bulhões Odontologia
+              <b>Bulhões Odontologia</b>
               <br />
-              <b>ENDEREÇO COMPLETO — Santos, SP</b>
+              Avenida Senador Feijó, 686
+              <br />
+              Vila Mathias • Santos/SP
+              <br />
+              CEP 11015-504
             </p>
           </div>
 
           <div className="map">
-            <div className="mapMock">
-              <span>
-                MAPA INTERATIVO
-                <br />
-                GOOGLE MAPS
-              </span>
-
-              <i>●</i>
-            </div>
+            <iframe
+              className="mapFrame"
+              src="https://www.google.com/maps?q=Avenida+Senador+Feij%C3%B3,+686,+Vila+Mathias,+Santos,+SP,+11015-504&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Localização da Bulhões Odontologia em Santos"
+            />
 
             <div className="routes">
               <a
-                href="https://maps.google.com/"
+                href="https://www.google.com/maps/dir/?api=1&destination=Avenida+Senador+Feij%C3%B3,+686,+Vila+Mathias,+Santos,+SP,+11015-504"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -487,7 +478,7 @@ export default function Home() {
               </a>
 
               <a
-                href="https://www.waze.com/"
+                href="https://www.waze.com/ul?q=Avenida%20Senador%20Feij%C3%B3%2C%20686%2C%20Vila%20Mathias%2C%20Santos%2C%20SP%2C%2011015-504&navigate=yes"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -519,9 +510,11 @@ export default function Home() {
           <b>Endereço</b>
 
           <p>
-            XXXXXXXX
+            Avenida Senador Feijó, 686
             <br />
-            Santos — SP
+            Vila Mathias • Santos/SP
+            <br />
+            CEP 11015-504
           </p>
         </div>
 
