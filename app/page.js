@@ -107,7 +107,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* POR QUE CONFIAR */}
+        {/* AUTORIDADE */}
         <section id="lentes" className="section trust">
           <div className="trustCopy">
             <p className="eyebrow">
@@ -250,7 +250,7 @@ export default function Home() {
           </div>
 
           <div className="cases">
-            {/* RESINA */}
+            {/* LENTES EM RESINA */}
             <article className="case">
               <div className="beforeAfter">
                 <Img label="ANTES" />
@@ -270,7 +270,7 @@ export default function Home() {
               </div>
             </article>
 
-            {/* PORCELANA */}
+            {/* LENTES EM PORCELANA */}
             <article className="case">
               <div className="beforeAfter">
                 <Img label="ANTES" />
@@ -290,11 +290,22 @@ export default function Home() {
               </div>
             </article>
 
-            {/* RETRATAMENTO */}
+            {/* RETRATAMENTO REAL */}
             <article className="case">
               <div className="beforeAfter">
-                <Img label="ANTES" />
-                <Img label="DEPOIS" />
+                <div className="casePhoto">
+                  <img
+                    src="/resultado-retratamento-antes.JPG"
+                    alt="Antes do retratamento de lentes de contato dental"
+                  />
+                </div>
+
+                <div className="casePhoto">
+                  <img
+                    src="/resultado-retratamento-depois.JPG"
+                    alt="Depois do retratamento de lentes de contato dental"
+                  />
+                </div>
               </div>
 
               <h3>
@@ -305,7 +316,7 @@ export default function Home() {
                 <span>◉ @paciente</span>
 
                 <p>
-                  Inserir print ou depoimento real do paciente.
+                  Inserir print ou depoimento real deste paciente.
                 </p>
               </div>
             </article>
@@ -382,7 +393,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* OUTROS TRATAMENTOS */}
+        {/* TRATAMENTOS */}
         <section id="tratamentos" className="section treatments">
           <div className="sectionHead">
             <p className="eyebrow">
@@ -413,6 +424,7 @@ export default function Home() {
               </p>
             </article>
 
+            {/* HARMONIZAÇÃO FACIAL REAL */}
             <article>
               <div className="treatmentPhoto">
                 <img
