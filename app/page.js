@@ -76,12 +76,19 @@ export default function Home() {
       </header>
 
       <main>
-        {/* BLOCO 1 */}
+        {/* BLOCO 1 — HERO */}
         <section id="inicio" className="section hero">
-          <Img label="PACIENTE / HERO" className="heroImg" />
+          <div className="heroPhoto">
+            <img
+              src="/hero-bulhoes.png"
+              alt="Paciente Bulhões Odontologia com lentes de contato dental"
+            />
+          </div>
 
           <div className="heroCopy">
-            <p className="eyebrow">LENTES DE CONTATO DENTAL • SANTOS</p>
+            <p className="eyebrow">
+              LENTES DE CONTATO DENTAL • SANTOS
+            </p>
 
             <h1>
               Você quer colocar lentes de contato dental, mas tem medo de
@@ -106,10 +113,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 2 */}
+        {/* BLOCO 2 — AUTORIDADE */}
         <section id="lentes" className="section trust">
           <div className="trustCopy">
-            <p className="eyebrow">LENTES DE CONTATO DENTAL</p>
+            <p className="eyebrow">
+              LENTES DE CONTATO DENTAL
+            </p>
 
             <h2>
               Por que tantas pessoas confiam na Bulhões Odontologia para
@@ -121,7 +130,9 @@ export default function Home() {
                 Experiência em mais de 2.000 casos de lentes de contato dental
               </li>
 
-              <li>Metodologia própria: Método Bulhões</li>
+              <li>
+                Metodologia própria: Método Bulhões
+              </li>
 
               <li>
                 Acompanhamento humanizado do planejamento ao pós-procedimento
@@ -150,10 +161,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 3 */}
+        {/* BLOCO 3 — MÉTODO BULHÕES */}
         <section id="metodo" className="method">
           <div className="methodIntro">
-            <p className="eyebrow">MÉTODO BULHÕES</p>
+            <p className="eyebrow">
+              MÉTODO BULHÕES
+            </p>
 
             <h2>
               Cada sorriso é único. Por isso, nossa avaliação é personalizada.
@@ -174,12 +187,16 @@ export default function Home() {
             <div className="labels">
               <div>
                 <b>Cor dos olhos</b>
-                <span>Leitura de harmonia e características do rosto.</span>
+                <span>
+                  Leitura de harmonia e características do rosto.
+                </span>
               </div>
 
               <div>
                 <b>Tom de pele</b>
-                <span>Considerado na composição estética do sorriso.</span>
+                <span>
+                  Considerado na composição estética do sorriso.
+                </span>
               </div>
 
               <div>
@@ -191,17 +208,23 @@ export default function Home() {
 
               <div>
                 <b>Curvatura do sorriso</b>
-                <span>Proporções e desenho em relação aos lábios.</span>
+                <span>
+                  Proporções e desenho em relação aos lábios.
+                </span>
               </div>
 
               <div>
                 <b>Personalidade</b>
-                <span>O que o paciente deseja preservar ou transmitir.</span>
+                <span>
+                  O que o paciente deseja preservar ou transmitir.
+                </span>
               </div>
 
               <div>
                 <b>Objetivo do paciente</b>
-                <span>O que deseja mudar e o que deseja manter.</span>
+                <span>
+                  O que deseja mudar e o que deseja manter.
+                </span>
               </div>
             </div>
           </div>
@@ -216,12 +239,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 4 */}
+        {/* BLOCO 4 — RESULTADOS */}
         <section id="resultados" className="section results">
           <div className="sectionHead">
-            <p className="eyebrow">RESULTADOS</p>
+            <p className="eyebrow">
+              RESULTADOS
+            </p>
 
-            <h2>Transformar sorrisos é transformar vidas.</h2>
+            <h2>
+              Transformar sorrisos é transformar vidas.
+            </h2>
 
             <p>
               Conheça alguns dos sorrisos que fazem parte da nossa história.
@@ -240,7 +267,10 @@ export default function Home() {
 
                 <div className="testimonial">
                   <span>◉ @paciente</span>
-                  <p>“{quote} — inserir print/depoimento aqui.”</p>
+
+                  <p>
+                    “{quote} — inserir print/depoimento aqui.”
+                  </p>
                 </div>
               </article>
             ))}
@@ -251,10 +281,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 5 */}
+        {/* BLOCO 5 — EQUIPE */}
         <section id="equipe" className="section team">
           <div className="sectionHead">
-            <p className="eyebrow">EQUIPE</p>
+            <p className="eyebrow">
+              EQUIPE
+            </p>
 
             <h2>
               Um sorriso bem planejado também é resultado de uma equipe que
@@ -272,8 +304,11 @@ export default function Home() {
             {team.map(([name, spec, cro], index) => (
               <article key={`${name}-${index}`}>
                 <Img label={`FOTO PROFISSIONAL ${index + 1}`} />
+
                 <h3>{name}</h3>
+
                 <p>{spec}</p>
+
                 <small>{cro}</small>
               </article>
             ))}
@@ -284,12 +319,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 6 */}
+        {/* BLOCO 6 — CLÍNICA */}
         <section id="clinica" className="clinic">
           <div className="sectionHead">
-            <p className="eyebrow">A CLÍNICA</p>
+            <p className="eyebrow">
+              A CLÍNICA
+            </p>
 
-            <h2>Uma experiência pensada nos detalhes.</h2>
+            <h2>
+              Uma experiência pensada nos detalhes.
+            </h2>
 
             <p>
               Ambientes, equipe e atendimento organizados para que cada etapa
@@ -308,12 +347,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 7 */}
+        {/* BLOCO 7 — TRATAMENTOS */}
         <section id="tratamentos" className="section treatments">
           <div className="sectionHead">
-            <p className="eyebrow">OUTROS CUIDADOS</p>
+            <p className="eyebrow">
+              OUTROS CUIDADOS
+            </p>
 
-            <h2>Um cuidado completo para o seu sorriso.</h2>
+            <h2>
+              Um cuidado completo para o seu sorriso.
+            </h2>
 
             <p>
               Além das lentes de contato dental, a Bulhões conta com um corpo
@@ -325,13 +368,23 @@ export default function Home() {
           <div className="treatmentGrid">
             <article>
               <Img label="TRATAMENTOS CLÍNICOS" />
-              <h3>Tratamentos Clínicos</h3>
-              <p>Saúde, prevenção e cuidado contínuo do sorriso.</p>
+
+              <h3>
+                Tratamentos Clínicos
+              </h3>
+
+              <p>
+                Saúde, prevenção e cuidado contínuo do sorriso.
+              </p>
             </article>
 
             <article>
               <Img label="HARMONIZAÇÃO FACIAL" />
-              <h3>Harmonização Facial</h3>
+
+              <h3>
+                Harmonização Facial
+              </h3>
+
               <p>
                 Equilíbrio e harmonia facial com planejamento individualizado.
               </p>
@@ -339,8 +392,14 @@ export default function Home() {
 
             <article>
               <Img label="IMPLANTES" />
-              <h3>Implantes</h3>
-              <p>Reabilitação do sorriso unindo função e estética.</p>
+
+              <h3>
+                Implantes
+              </h3>
+
+              <p>
+                Reabilitação do sorriso unindo função e estética.
+              </p>
             </article>
           </div>
 
@@ -349,12 +408,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BLOCO 8 */}
+        {/* BLOCO 8 — ENDEREÇO */}
         <section id="endereco" className="location">
           <div className="sectionHead">
-            <p className="eyebrow">SANTOS • SP</p>
+            <p className="eyebrow">
+              SANTOS • SP
+            </p>
 
-            <h2>Como chegar à Bulhões?</h2>
+            <h2>
+              Como chegar à Bulhões?
+            </h2>
 
             <p>
               Bulhões Odontologia
@@ -397,13 +460,22 @@ export default function Home() {
 
       <footer>
         <div className="footerBrand">
-          <strong>BULHÕES</strong>
-          <span>ODONTOLOGIA</span>
-          <em>Naturalidade é o nosso maior luxo.</em>
+          <strong>
+            BULHÕES
+          </strong>
+
+          <span>
+            ODONTOLOGIA
+          </span>
+
+          <em>
+            Naturalidade é o nosso maior luxo.
+          </em>
         </div>
 
         <div>
           <b>Contato</b>
+
           <p>
             WhatsApp: (XX) XXXXX-XXXX
             <br />
@@ -413,6 +485,7 @@ export default function Home() {
 
         <div>
           <b>Endereço</b>
+
           <p>
             XXXXXXXX
             <br />
@@ -422,6 +495,7 @@ export default function Home() {
 
         <div>
           <b>Responsável técnico</b>
+
           <p>
             Dr(a). XXXXX
             <br />
