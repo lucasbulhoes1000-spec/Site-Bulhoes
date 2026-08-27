@@ -147,7 +147,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MÉTODO */}
+        {/* MÉTODO BULHÕES */}
         <section id="metodo" className="method">
           <div className="methodIntro">
             <p className="eyebrow">MÉTODO BULHÕES</p>
@@ -171,7 +171,9 @@ export default function Home() {
             <div className="labels">
               <div>
                 <b>Cor dos olhos</b>
-                <span>Leitura de harmonia e características do rosto.</span>
+                <span>
+                  Leitura de harmonia e características do rosto.
+                </span>
               </div>
 
               <div>
@@ -234,19 +236,19 @@ export default function Home() {
           </div>
 
           <div className="cases">
-            {/* RESINA */}
+            {/* LENTES EM RESINA */}
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
                   <img
-                    src="/antes-resina.jpg"
+                    src="/antes-resina.JPG"
                     alt="Antes das lentes em resina"
                   />
                 </div>
 
                 <div className="casePhoto">
                   <img
-                    src="/depois-resina.jpg"
+                    src="/depois-resina.JPG"
                     alt="Depois das lentes em resina"
                   />
                 </div>
@@ -260,19 +262,19 @@ export default function Home() {
               </div>
             </article>
 
-            {/* PORCELANA */}
+            {/* LENTES EM PORCELANA */}
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
                   <img
-                    src="/antes-porcelana.jpg"
+                    src="/antes-porcelana.JPG"
                     alt="Antes das lentes em porcelana"
                   />
                 </div>
 
                 <div className="casePhoto">
                   <img
-                    src="/depois-porcelana.jpg"
+                    src="/depois-porcelana.JPG"
                     alt="Depois das lentes em porcelana"
                   />
                 </div>
@@ -402,10 +404,12 @@ export default function Home() {
 
               <h3>Tratamentos Clínicos</h3>
 
-              <p>Saúde, prevenção e cuidado contínuo do sorriso.</p>
+              <p>
+                Saúde, prevenção e cuidado contínuo do sorriso.
+              </p>
             </article>
 
-            {/* HARMONIZAÇÃO */}
+            {/* HARMONIZAÇÃO FACIAL */}
             <article>
               <div className="treatmentPhoto">
                 <img
@@ -425,14 +429,16 @@ export default function Home() {
             <article>
               <div className="treatmentPhoto">
                 <img
-                  src="/implantes.jpg"
+                  src="/Implantes.JPG"
                   alt="Implantes dentários na Bulhões Odontologia"
                 />
               </div>
 
               <h3>Implantes</h3>
 
-              <p>Reabilitação do sorriso unindo função e estética.</p>
+              <p>
+                Reabilitação do sorriso unindo função e estética.
+              </p>
             </article>
           </div>
 
@@ -453,7 +459,7 @@ export default function Home() {
               <br />
               Avenida Senador Feijó, 686
               <br />
-              Vila Mathias • Santos/SP
+              Vila Matias • Santos/SP
               <br />
               CEP 11015-504
             </p>
@@ -462,7 +468,7 @@ export default function Home() {
           <div className="map">
             <iframe
               className="mapFrame"
-              src="https://www.google.com/maps?q=Avenida+Senador+Feij%C3%B3,+686,+Vila+Mathias,+Santos,+SP,+11015-504&output=embed"
+              src="https://www.google.com/maps?q=Avenida+Senador+Feij%C3%B3,+686,+Vila+Matias,+Santos,+SP,+11015-504&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Localização da Bulhões Odontologia em Santos"
@@ -470,7 +476,7 @@ export default function Home() {
 
             <div className="routes">
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Avenida+Senador+Feij%C3%B3,+686,+Vila+Mathias,+Santos,+SP,+11015-504"
+                href="https://www.google.com/maps/dir/?api=1&destination=Avenida+Senador+Feij%C3%B3,+686,+Vila+Matias,+Santos,+SP,+11015-504"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -478,7 +484,7 @@ export default function Home() {
               </a>
 
               <a
-                href="https://www.waze.com/ul?q=Avenida%20Senador%20Feij%C3%B3%2C%20686%2C%20Vila%20Mathias%2C%20Santos%2C%20SP%2C%2011015-504&navigate=yes"
+                href="https://www.waze.com/ul?q=Avenida%20Senador%20Feij%C3%B3%2C%20686%2C%20Vila%20Matias%2C%20Santos%2C%20SP%2C%2011015-504&navigate=yes"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -512,7 +518,7 @@ export default function Home() {
           <p>
             Avenida Senador Feijó, 686
             <br />
-            Vila Mathias • Santos/SP
+            Vila Matias • Santos/SP
             <br />
             CEP 11015-504
           </p>
