@@ -110,9 +110,7 @@ export default function Home() {
         {/* AUTORIDADE */}
         <section id="lentes" className="section trust">
           <div className="trustCopy">
-            <p className="eyebrow">
-              LENTES DE CONTATO DENTAL
-            </p>
+            <p className="eyebrow">LENTES DE CONTATO DENTAL</p>
 
             <h2>
               Por que tantas pessoas confiam na Bulhões Odontologia para
@@ -124,9 +122,7 @@ export default function Home() {
                 Experiência em mais de 2.000 casos de lentes de contato dental
               </li>
 
-              <li>
-                Metodologia própria: Método Bulhões
-              </li>
+              <li>Metodologia própria: Método Bulhões</li>
 
               <li>
                 Acompanhamento humanizado do planejamento ao pós-procedimento
@@ -158,9 +154,7 @@ export default function Home() {
         {/* MÉTODO BULHÕES */}
         <section id="metodo" className="method">
           <div className="methodIntro">
-            <p className="eyebrow">
-              MÉTODO BULHÕES
-            </p>
+            <p className="eyebrow">MÉTODO BULHÕES</p>
 
             <h2>
               Cada sorriso é único. Por isso, nossa avaliação é personalizada.
@@ -236,13 +230,9 @@ export default function Home() {
         {/* RESULTADOS */}
         <section id="resultados" className="section results">
           <div className="sectionHead">
-            <p className="eyebrow">
-              RESULTADOS
-            </p>
+            <p className="eyebrow">RESULTADOS</p>
 
-            <h2>
-              Transformar sorrisos é transformar vidas.
-            </h2>
+            <h2>Transformar sorrisos é transformar vidas.</h2>
 
             <p>
               Conheça alguns dos sorrisos que fazem parte da nossa história.
@@ -250,74 +240,81 @@ export default function Home() {
           </div>
 
           <div className="cases">
-            {/* LENTES EM RESINA */}
+            {/* RESINA */}
             <article className="case">
               <div className="beforeAfter">
-                <Img label="ANTES" />
-                <Img label="DEPOIS" />
+                <div className="casePhoto">
+                  <img
+                    src="/antes-resina.JPG"
+                    alt="Antes das lentes em resina"
+                  />
+                </div>
+
+                <div className="casePhoto">
+                  <img
+                    src="/depois-resina.JPG"
+                    alt="Depois das lentes em resina"
+                  />
+                </div>
               </div>
 
-              <h3>
-                Lentes em Resina
-              </h3>
+              <h3>Lentes em Resina</h3>
 
               <div className="testimonial">
                 <span>◉ @paciente</span>
-
-                <p>
-                  Inserir print ou depoimento real da paciente.
-                </p>
+                <p>Inserir print ou depoimento real da paciente.</p>
               </div>
             </article>
 
-            {/* LENTES EM PORCELANA */}
+            {/* PORCELANA */}
             <article className="case">
               <div className="beforeAfter">
-                <Img label="ANTES" />
-                <Img label="DEPOIS" />
+                <div className="casePhoto">
+                  <img
+                    src="/antes-porcelana.JPG"
+                    alt="Antes das lentes em porcelana"
+                  />
+                </div>
+
+                <div className="casePhoto">
+                  <img
+                    src="/depois-porcelana.JPG"
+                    alt="Depois das lentes em porcelana"
+                  />
+                </div>
               </div>
 
-              <h3>
-                Lentes em Porcelana
-              </h3>
+              <h3>Lentes em Porcelana</h3>
 
               <div className="testimonial">
                 <span>◉ @paciente</span>
-
-                <p>
-                  Inserir print ou depoimento real da paciente.
-                </p>
+                <p>Inserir print ou depoimento real da paciente.</p>
               </div>
             </article>
 
-            {/* RETRATAMENTO REAL */}
+            {/* RETRATAMENTO */}
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
                   <img
                     src="/resultado-retratamento-antes.JPG"
-                    alt="Antes do retratamento de lentes de contato dental"
+                    alt="Antes do retratamento de lentes"
                   />
                 </div>
 
                 <div className="casePhoto">
                   <img
                     src="/resultado-retratamento-depois.JPG"
-                    alt="Depois do retratamento de lentes de contato dental"
+                    alt="Depois do retratamento de lentes"
                   />
                 </div>
               </div>
 
-              <h3>
-                Retratamento de Lentes
-              </h3>
+              <h3>Retratamento de Lentes</h3>
 
               <div className="testimonial">
                 <span>◉ @paciente</span>
-
-                <p>
-                  Inserir print ou depoimento real deste paciente.
-                </p>
+                <p>Inserir print ou depoimento real do paciente.</p>
               </div>
             </article>
           </div>
@@ -330,9 +327,7 @@ export default function Home() {
         {/* EQUIPE */}
         <section id="equipe" className="section team">
           <div className="sectionHead">
-            <p className="eyebrow">
-              EQUIPE
-            </p>
+            <p className="eyebrow">EQUIPE</p>
 
             <h2>
               Um sorriso bem planejado também é resultado de uma equipe que
@@ -352,9 +347,7 @@ export default function Home() {
                 <Img label={`FOTO PROFISSIONAL ${index + 1}`} />
 
                 <h3>{name}</h3>
-
                 <p>{spec}</p>
-
                 <small>{cro}</small>
               </article>
             ))}
@@ -368,13 +361,9 @@ export default function Home() {
         {/* CLÍNICA */}
         <section id="clinica" className="clinic">
           <div className="sectionHead">
-            <p className="eyebrow">
-              A CLÍNICA
-            </p>
+            <p className="eyebrow">A CLÍNICA</p>
 
-            <h2>
-              Uma experiência pensada nos detalhes.
-            </h2>
+            <h2>Uma experiência pensada nos detalhes.</h2>
 
             <p>
               Ambientes, equipe e atendimento organizados para que cada etapa
@@ -396,13 +385,9 @@ export default function Home() {
         {/* TRATAMENTOS */}
         <section id="tratamentos" className="section treatments">
           <div className="sectionHead">
-            <p className="eyebrow">
-              OUTROS CUIDADOS
-            </p>
+            <p className="eyebrow">OUTROS CUIDADOS</p>
 
-            <h2>
-              Um cuidado completo para o seu sorriso.
-            </h2>
+            <h2>Um cuidado completo para o seu sorriso.</h2>
 
             <p>
               Além das lentes de contato dental, a Bulhões conta com um corpo
@@ -412,19 +397,24 @@ export default function Home() {
           </div>
 
           <div className="treatmentGrid">
-            <article>
-              <Img label="TRATAMENTOS CLÍNICOS" />
 
-              <h3>
-                Tratamentos Clínicos
-              </h3>
+            {/* TRATAMENTOS CLÍNICOS */}
+            <article>
+              <div className="treatmentPhoto">
+                <img
+                  src="/tratamentoclinico.jpg"
+                  alt="Tratamentos clínicos na Bulhões Odontologia"
+                />
+              </div>
+
+              <h3>Tratamentos Clínicos</h3>
 
               <p>
                 Saúde, prevenção e cuidado contínuo do sorriso.
               </p>
             </article>
 
-            {/* HARMONIZAÇÃO FACIAL REAL */}
+            {/* HARMONIZAÇÃO */}
             <article>
               <div className="treatmentPhoto">
                 <img
@@ -433,21 +423,23 @@ export default function Home() {
                 />
               </div>
 
-              <h3>
-                Harmonização Facial
-              </h3>
+              <h3>Harmonização Facial</h3>
 
               <p>
                 Equilíbrio e harmonia facial com planejamento individualizado.
               </p>
             </article>
 
+            {/* IMPLANTES */}
             <article>
-              <Img label="IMPLANTES" />
+              <div className="treatmentPhoto">
+                <img
+                  src="/Implantes.JPG"
+                  alt="Implantes dentários na Bulhões Odontologia"
+                />
+              </div>
 
-              <h3>
-                Implantes
-              </h3>
+              <h3>Implantes</h3>
 
               <p>
                 Reabilitação do sorriso unindo função e estética.
@@ -463,13 +455,9 @@ export default function Home() {
         {/* ENDEREÇO */}
         <section id="endereco" className="location">
           <div className="sectionHead">
-            <p className="eyebrow">
-              SANTOS • SP
-            </p>
+            <p className="eyebrow">SANTOS • SP</p>
 
-            <h2>
-              Como chegar à Bulhões?
-            </h2>
+            <h2>Como chegar à Bulhões?</h2>
 
             <p>
               Bulhões Odontologia
