@@ -1,12 +1,13 @@
-const WhatsAppIcon = ({ size = 22 }) => (
+const WhatsAppIcon = () => (
   <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
+    viewBox="0 0 32 32"
     aria-hidden="true"
+    width="22"
+    height="22"
+    fill="currentColor"
   >
-    <path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.44 2.13 11.9c0 1.75.46 3.45 1.33 4.95L2.05 22l5.28-1.38a9.9 9.9 0 0 0 4.71 1.2h.01c5.45 0 9.89-4.44 9.89-9.9a9.84 9.84 0 0 0-2.89-7.01Zm-7 15.24h-.01a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.13.82.84-3.05-.2-.31a8.16 8.16 0 0 1-1.25-4.39c0-4.51 3.68-8.18 8.2-8.18a8.13 8.13 0 0 1 5.79 2.4 8.13 8.13 0 0 1 2.39 5.8c0 4.51-3.68 8.18-8.2 8.18Zm4.49-6.13c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.79.97-.14.16-.29.19-.54.06-.25-.13-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.38-1.73-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.12.16 1.75 2.67 4.24 3.75.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z" />
+    <path d="M19.11 17.21c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26 0 1.33.97 2.62 1.11 2.8.14.18 1.91 2.91 4.62 4.08.65.28 1.15.45 1.54.57.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.29.23-.63.23-1.17.16-1.29-.07-.11-.25-.18-.52-.32z" />
+    <path d="M16.02 3C8.84 3 3 8.74 3 15.8c0 2.25.6 4.45 1.74 6.37L3 29l7.03-1.81a13.2 13.2 0 0 0 5.98 1.45h.01C23.2 28.64 29 22.9 29 15.83 29 8.76 23.2 3 16.02 3zm0 23.47h-.01a10.95 10.95 0 0 1-5.58-1.52l-.4-.24-4.17 1.08 1.11-4-.26-.41a10.54 10.54 0 0 1-1.67-5.69c0-5.86 4.92-10.63 10.98-10.63 6.05 0 10.97 4.77 10.97 10.64 0 5.86-4.92 10.77-10.97 10.77z" />
   </svg>
 );
 
@@ -17,7 +18,7 @@ const CTA = () => (
     target="_blank"
     rel="noreferrer"
   >
-    <WhatsAppIcon size={23} />
+    <WhatsAppIcon />
     <span>AGENDAR AVALIAÇÃO PERSONALIZADA</span>
   </a>
 );
@@ -46,15 +47,9 @@ export default function Home() {
         <a href="#inicio" className="brand">
           <img
             src="/logo-bulhoes.png"
-            alt="Símbolo Bulhões Odontologia"
-            className="brandSymbol"
+            alt="Bulhões Odontologia"
+            className="brandLogo"
           />
-
-          <div className="brandText">
-            <strong>BULHÕES</strong>
-            <small>ODONTOLOGIA</small>
-            <em>Naturalidade é o nosso maior luxo.</em>
-          </div>
         </a>
 
         <nav>
@@ -72,21 +67,19 @@ export default function Home() {
       <main>
         {/* HERO */}
         <section id="inicio" className="section hero">
-          <div className="heroPhoto">
+          <div className="heroImg imageFrame">
             <img
               src="/hero-bulhoes.png"
-              alt="Paciente Bulhões Odontologia com lentes de contato dental"
+              alt="Resultado de lentes de contato dental na Bulhões Odontologia"
             />
           </div>
 
           <div className="heroCopy">
-            <p className="eyebrow">
-              LENTES DE CONTATO DENTAL • SANTOS
-            </p>
+            <p className="eyebrow">LENTES DE CONTATO DENTAL • SANTOS</p>
 
             <h1>
-              Você quer colocar lentes de contato dental, mas tem medo de
-              ficar artificial?
+              Você quer colocar lentes de contato dental, mas tem medo de ficar
+              artificial?
             </h1>
 
             <p>
@@ -107,12 +100,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* AUTORIDADE */}
+        {/* CONFIANÇA */}
         <section id="lentes" className="section trust">
           <div className="trustCopy">
-            <p className="eyebrow">
-              LENTES DE CONTATO DENTAL
-            </p>
+            <p className="eyebrow">LENTES DE CONTATO DENTAL</p>
 
             <h2>
               Por que tantas pessoas confiam na Bulhões Odontologia para
@@ -123,20 +114,14 @@ export default function Home() {
               <li>
                 Experiência em mais de 2.000 casos de lentes de contato dental
               </li>
-
-              <li>
-                Metodologia própria: Método Bulhões
-              </li>
-
+              <li>Metodologia própria: Método Bulhões</li>
               <li>
                 Acompanhamento humanizado do planejamento ao pós-procedimento
               </li>
-
               <li>
                 Resultados naturais, planejados para aliar estética e
                 durabilidade
               </li>
-
               <li>
                 Corpo clínico multidisciplinar trabalhando de forma integrada
               </li>
@@ -158,9 +143,7 @@ export default function Home() {
         {/* MÉTODO BULHÕES */}
         <section id="metodo" className="method">
           <div className="methodIntro">
-            <p className="eyebrow">
-              MÉTODO BULHÕES
-            </p>
+            <p className="eyebrow">MÉTODO BULHÕES</p>
 
             <h2>
               Cada sorriso é único. Por isso, nossa avaliação é personalizada.
@@ -168,9 +151,9 @@ export default function Home() {
 
             <p>
               Através do <b>Método Bulhões</b>, nosso planejamento considera
-              muito mais do que os dentes. Analisamos o sorriso em conjunto
-              com as características do rosto, buscando entender a imagem que
-              cada paciente deseja transmitir para construir um resultado
+              muito mais do que os dentes. Analisamos o sorriso em conjunto com
+              as características do rosto, buscando entender a imagem que cada
+              paciente deseja transmitir para construir um resultado
               verdadeiramente individual.
             </p>
           </div>
@@ -181,16 +164,12 @@ export default function Home() {
             <div className="labels">
               <div>
                 <b>Cor dos olhos</b>
-                <span>
-                  Leitura de harmonia e características do rosto.
-                </span>
+                <span>Leitura de harmonia e características do rosto.</span>
               </div>
 
               <div>
                 <b>Tom de pele</b>
-                <span>
-                  Considerado na composição estética do sorriso.
-                </span>
+                <span>Considerado na composição estética do sorriso.</span>
               </div>
 
               <div>
@@ -202,9 +181,7 @@ export default function Home() {
 
               <div>
                 <b>Curvatura do sorriso</b>
-                <span>
-                  Proporções e desenho em relação aos lábios.
-                </span>
+                <span>Proporções e desenho em relação aos lábios.</span>
               </div>
 
               <div>
@@ -216,9 +193,7 @@ export default function Home() {
 
               <div>
                 <b>Objetivo do paciente</b>
-                <span>
-                  O que deseja mudar e o que deseja manter.
-                </span>
+                <span>O que deseja mudar e o que deseja manter.</span>
               </div>
             </div>
           </div>
@@ -236,13 +211,9 @@ export default function Home() {
         {/* RESULTADOS */}
         <section id="resultados" className="section results">
           <div className="sectionHead">
-            <p className="eyebrow">
-              RESULTADOS
-            </p>
+            <p className="eyebrow">RESULTADOS</p>
 
-            <h2>
-              Transformar sorrisos é transformar vidas.
-            </h2>
+            <h2>Transformar sorrisos é transformar vidas.</h2>
 
             <p>
               Conheça alguns dos sorrisos que fazem parte da nossa história.
@@ -250,7 +221,6 @@ export default function Home() {
           </div>
 
           <div className="cases">
-            {/* CASO 1 */}
             <article className="case">
               <div className="beforeAfter">
                 <Img label="ANTES" />
@@ -261,11 +231,13 @@ export default function Home() {
 
               <div className="testimonial">
                 <span>◉ @paciente</span>
-                <p>Inserir depoimento real da paciente.</p>
+                <p>
+                  “DEPOIMENTO REAL DA PACIENTE — inserir print/depoimento
+                  aqui.”
+                </p>
               </div>
             </article>
 
-            {/* CASO 2 */}
             <article className="case">
               <div className="beforeAfter">
                 <Img label="ANTES" />
@@ -276,26 +248,17 @@ export default function Home() {
 
               <div className="testimonial">
                 <span>◉ @paciente</span>
-                <p>Inserir depoimento real da paciente.</p>
+                <p>
+                  “DEPOIMENTO REAL DA PACIENTE — inserir print/depoimento
+                  aqui.”
+                </p>
               </div>
             </article>
 
-            {/* CASO 3 — RETRATAMENTO REAL */}
             <article className="case">
               <div className="beforeAfter">
-                <div className="casePhoto">
-                  <img
-                    src="/resultado-retratamento-antes.jpg"
-                    alt="Antes do retratamento de lentes de contato dental"
-                  />
-                </div>
-
-                <div className="casePhoto">
-                  <img
-                    src="/resultado-retratamento-depois.jpg"
-                    alt="Depois do retratamento de lentes de contato dental"
-                  />
-                </div>
+                <Img label="ANTES" />
+                <Img label="DEPOIS" />
               </div>
 
               <h3>Retratamento de Lentes</h3>
@@ -303,7 +266,8 @@ export default function Home() {
               <div className="testimonial">
                 <span>◉ @paciente</span>
                 <p>
-                  Inserir aqui o depoimento real deste paciente.
+                  “DEPOIMENTO REAL DA PACIENTE — inserir print/depoimento
+                  aqui.”
                 </p>
               </div>
             </article>
@@ -317,9 +281,7 @@ export default function Home() {
         {/* EQUIPE */}
         <section id="equipe" className="section team">
           <div className="sectionHead">
-            <p className="eyebrow">
-              EQUIPE
-            </p>
+            <p className="eyebrow">EQUIPE</p>
 
             <h2>
               Um sorriso bem planejado também é resultado de uma equipe que
@@ -334,9 +296,9 @@ export default function Home() {
           </div>
 
           <div className="teamGrid">
-            {team.map(([name, spec, cro], index) => (
-              <article key={`${name}-${index}`}>
-                <Img label={`FOTO PROFISSIONAL ${index + 1}`} />
+            {team.map(([name, spec, cro], i) => (
+              <article key={i}>
+                <Img label={`FOTO PROFISSIONAL ${i + 1}`} />
 
                 <h3>{name}</h3>
 
@@ -355,13 +317,9 @@ export default function Home() {
         {/* CLÍNICA */}
         <section id="clinica" className="clinic">
           <div className="sectionHead">
-            <p className="eyebrow">
-              A CLÍNICA
-            </p>
+            <p className="eyebrow">A CLÍNICA</p>
 
-            <h2>
-              Uma experiência pensada nos detalhes.
-            </h2>
+            <h2>Uma experiência pensada nos detalhes.</h2>
 
             <p>
               Ambientes, equipe e atendimento organizados para que cada etapa
@@ -383,13 +341,9 @@ export default function Home() {
         {/* TRATAMENTOS */}
         <section id="tratamentos" className="section treatments">
           <div className="sectionHead">
-            <p className="eyebrow">
-              OUTROS CUIDADOS
-            </p>
+            <p className="eyebrow">OUTROS CUIDADOS</p>
 
-            <h2>
-              Um cuidado completo para o seu sorriso.
-            </h2>
+            <h2>Um cuidado completo para o seu sorriso.</h2>
 
             <p>
               Além das lentes de contato dental, a Bulhões conta com um corpo
@@ -399,48 +353,35 @@ export default function Home() {
           </div>
 
           <div className="treatmentGrid">
-            {/* TRATAMENTOS CLÍNICOS */}
             <article>
               <Img label="TRATAMENTOS CLÍNICOS" />
 
-              <h3>
-                Tratamentos Clínicos
-              </h3>
+              <h3>Tratamentos Clínicos</h3>
 
-              <p>
-                Saúde, prevenção e cuidado contínuo do sorriso.
-              </p>
+              <p>Saúde, prevenção e cuidado contínuo do sorriso.</p>
             </article>
 
-            {/* HARMONIZAÇÃO FACIAL REAL */}
             <article>
-              <div className="treatmentPhoto">
+              <div className="treatmentImage imageFrame">
                 <img
-                  src="/harmonizacao-facial.png"
+                  src="/harmonizacao-facial.PNG"
                   alt="Antes e depois de harmonização facial na Bulhões Odontologia"
                 />
               </div>
 
-              <h3>
-                Harmonização Facial
-              </h3>
+              <h3>Harmonização Facial</h3>
 
               <p>
                 Equilíbrio e harmonia facial com planejamento individualizado.
               </p>
             </article>
 
-            {/* IMPLANTES */}
             <article>
               <Img label="IMPLANTES" />
 
-              <h3>
-                Implantes
-              </h3>
+              <h3>Implantes</h3>
 
-              <p>
-                Reabilitação do sorriso unindo função e estética.
-              </p>
+              <p>Reabilitação do sorriso unindo função e estética.</p>
             </article>
           </div>
 
@@ -452,13 +393,9 @@ export default function Home() {
         {/* ENDEREÇO */}
         <section id="endereco" className="location">
           <div className="sectionHead">
-            <p className="eyebrow">
-              SANTOS • SP
-            </p>
+            <p className="eyebrow">SANTOS • SP</p>
 
-            <h2>
-              Como chegar à Bulhões?
-            </h2>
+            <h2>Como chegar à Bulhões?</h2>
 
             <p>
               Bulhões Odontologia
@@ -480,7 +417,7 @@ export default function Home() {
 
             <div className="routes">
               <a
-                href="https://www.google.com/maps"
+                href="https://maps.google.com/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -499,6 +436,7 @@ export default function Home() {
         </section>
       </main>
 
+      {/* FOOTER */}
       <footer>
         <div className="footerBrand">
           <strong>BULHÕES</strong>
@@ -508,7 +446,6 @@ export default function Home() {
 
         <div>
           <b>Contato</b>
-
           <p>
             WhatsApp: (XX) XXXXX-XXXX
             <br />
@@ -518,7 +455,6 @@ export default function Home() {
 
         <div>
           <b>Endereço</b>
-
           <p>
             XXXXXXXX
             <br />
@@ -528,7 +464,6 @@ export default function Home() {
 
         <div>
           <b>Responsável técnico</b>
-
           <p>
             Dr(a). XXXXX
             <br />
@@ -537,14 +472,15 @@ export default function Home() {
         </div>
       </footer>
 
+      {/* WHATSAPP FLUTUANTE */}
       <a
         className="floatingWa"
         href="https://wa.me/55XXXXXXXXXXX"
         target="_blank"
         rel="noreferrer"
-        aria-label="Falar com a Bulhões pelo WhatsApp"
+        aria-label="WhatsApp"
       >
-        <WhatsAppIcon size={31} />
+        <WhatsAppIcon />
       </a>
     </>
   );
