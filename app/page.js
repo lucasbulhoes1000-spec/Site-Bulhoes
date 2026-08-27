@@ -121,14 +121,18 @@ export default function Home() {
               <li>
                 Experiência em mais de 2.000 casos de lentes de contato dental
               </li>
+
               <li>Metodologia própria: Método Bulhões</li>
+
               <li>
                 Acompanhamento humanizado do planejamento ao pós-procedimento
               </li>
+
               <li>
                 Resultados naturais, planejados para aliar estética e
                 durabilidade
               </li>
+
               <li>
                 Corpo clínico multidisciplinar trabalhando de forma integrada
               </li>
@@ -147,7 +151,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MÉTODO BULHÕES */}
+        {/* MÉTODO */}
         <section id="metodo" className="method">
           <div className="methodIntro">
             <p className="eyebrow">MÉTODO BULHÕES</p>
@@ -158,9 +162,9 @@ export default function Home() {
 
             <p>
               Através do <b>Método Bulhões</b>, nosso planejamento considera
-              muito mais do que os dentes. Analisamos o sorriso em conjunto com
-              as características do rosto, buscando entender a imagem que cada
-              paciente deseja transmitir para construir um resultado
+              muito mais do que os dentes. Analisamos o sorriso em conjunto
+              com as características do rosto, buscando entender a imagem que
+              cada paciente deseja transmitir para construir um resultado
               verdadeiramente individual.
             </p>
           </div>
@@ -236,7 +240,7 @@ export default function Home() {
           </div>
 
           <div className="cases">
-            {/* LENTES EM RESINA */}
+            {/* RESINA */}
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
@@ -262,7 +266,7 @@ export default function Home() {
               </div>
             </article>
 
-            {/* LENTES EM PORCELANA */}
+            {/* PORCELANA */}
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
@@ -393,7 +397,6 @@ export default function Home() {
           </div>
 
           <div className="treatmentGrid">
-            {/* TRATAMENTOS CLÍNICOS */}
             <article>
               <div className="treatmentPhoto">
                 <img
@@ -404,12 +407,9 @@ export default function Home() {
 
               <h3>Tratamentos Clínicos</h3>
 
-              <p>
-                Saúde, prevenção e cuidado contínuo do sorriso.
-              </p>
+              <p>Saúde, prevenção e cuidado contínuo do sorriso.</p>
             </article>
 
-            {/* HARMONIZAÇÃO FACIAL */}
             <article>
               <div className="treatmentPhoto">
                 <img
@@ -425,7 +425,6 @@ export default function Home() {
               </p>
             </article>
 
-            {/* IMPLANTES */}
             <article>
               <div className="treatmentPhoto">
                 <img
@@ -447,9 +446,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ENDEREÇO */}
+        {/* LOCALIZAÇÃO */}
         <section id="endereco" className="location">
-          <div className="sectionHead">
+          <div className="sectionHead locationHead">
             <p className="eyebrow">SANTOS • SP</p>
 
             <h2>Como chegar à Bulhões?</h2>
@@ -465,14 +464,16 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="map">
-            <iframe
-              className="mapFrame"
-              src="https://www.google.com/maps?q=Avenida+Senador+Feij%C3%B3,+686,+Vila+Matias,+Santos,+SP,+11015-504&output=embed"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Localização da Bulhões Odontologia em Santos"
-            />
+          <div className="mapArea">
+            <div className="mapFrameWrapper">
+              <iframe
+                className="mapFrame"
+                src="https://www.google.com/maps?q=Avenida+Senador+Feij%C3%B3,+686,+Vila+Matias,+Santos,+SP,+11015-504&z=16&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização da Bulhões Odontologia em Santos"
+              />
+            </div>
 
             <div className="routes">
               <a
