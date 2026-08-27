@@ -1,298 +1,163 @@
-const lenses = [
-  {
-    title: 'Lentes em Resina',
-    text: 'Construção artesanal, personalizada e planejada para preservar naturalidade, proporção e identidade.',
-    image: '/placeholder-case-1.svg',
-  },
-  {
-    title: 'Lentes em Porcelana',
-    text: 'Planejamento individual, acabamento refinado e escolha criteriosa de forma, textura e cor.',
-    image: '/placeholder-case-2.svg',
-  },
-  {
-    title: 'Retratamento de Lentes',
-    text: 'Uma nova leitura para casos antigos, buscando saúde, adaptação, equilíbrio e naturalidade.',
-    image: '/placeholder-case-3.svg',
-  },
-]
+const CTA = () => (
+  <a className="cta" href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noreferrer">
+    <span className="wa">◔</span> AGENDAR AVALIAÇÃO PERSONALIZADA
+  </a>
+);
 
-const treatments = [
-  'Alinhadores',
-  'Implantes',
-  'Periodontia',
-  'Clareamento',
-  'Endodontia',
-  'Clínica geral',
-]
+const Img = ({label, className=""}) => <div className={`ph ${className}`}><span>{label}</span></div>;
 
-const faqs = [
-  ['Qual a diferença entre lentes em resina e porcelana?', 'A indicação depende do caso clínico, expectativas, estrutura dental, hábitos e planejamento. Nesta primeira versão, o texto é apenas estrutural.'],
-  ['As lentes desgastam os dentes?', 'A necessidade de preparo varia conforme o caso. A avaliação individual é indispensável para definir a conduta adequada.'],
-  ['Quanto tempo duram as lentes?', 'A longevidade depende de técnica, material, hábitos, manutenção e características individuais.'],
-  ['Como saber qual técnica é ideal para mim?', 'A decisão é feita em avaliação, após análise do sorriso, face, saúde bucal e objetivos do paciente.'],
-  ['Vocês atendem pacientes de outras cidades?', 'Sim. Nesta estrutura inicial, os detalhes de logística serão inseridos posteriormente.'],
-  ['Como funciona a avaliação?', 'A avaliação envolve escuta, análise clínica, planejamento e definição dos próximos passos.'],
-]
-
-function Header() {
+export default function Home() {
+  const team = [
+    ["Dra. Larissa Bulhões", "Fundadora • Lentes de Contato Dental", "CRO XXXXX"],
+    ["Dra. XXXXX", "Lentes de Contato Dental", "CRO XXXXX"],
+    ["Dra. XXXXX", "Periodontia", "CRO XXXXX"],
+    ["Dra. XXXXX", "Odontologia Clínica", "CRO XXXXX"]
+  ];
   return (
-    <header className="site-header">
-      <div className="container header-inner">
-        <a className="brand" href="#inicio" aria-label="Bulhões Odontologia">
-          <div className="brand-mark">B</div>
-          <div className="brand-copy">
-            <strong>BULHÕES</strong>
-            <span>ODONTOLOGIA</span>
-            <em>Naturalidade é o nosso maior luxo.</em>
-          </div>
+    <>
+      <header className="header">
+        <a href="#inicio" className="brand">
+          <div className="mark">B</div>
+          <div><strong>BULHÕES</strong><small>ODONTOLOGIA</small><em>Naturalidade é o nosso maior luxo.</em></div>
         </a>
-        <nav className="desktop-nav" aria-label="Navegação principal">
-          <a href="#inicio">Início</a>
-          <a href="#lentes">Lentes</a>
-          <a href="#metodo">Método Bulhões</a>
-          <a href="#resultados">Resultados</a>
-          <a href="#tratamentos">Tratamentos</a>
-          <a href="#equipe">Equipe</a>
-          <a href="#clinica">Clínica</a>
-          <a href="#faq">FAQ</a>
-          <a href="#endereco">Endereço</a>
+        <nav>
+          <a href="#inicio">Início</a><a href="#lentes">Lentes</a><a href="#metodo">Método Bulhões</a>
+          <a href="#resultados">Resultados</a><a href="#tratamentos">Tratamentos</a>
+          <a href="#equipe">Equipe</a><a href="#clinica">Clínica</a><a href="#endereco">Endereço</a>
         </nav>
-      </div>
-    </header>
-  )
-}
+      </header>
 
-function CTA({ label = 'AGENDE SUA AVALIAÇÃO' }) {
-  return (
-    <a className="cta" href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noreferrer">
-      <span className="cta-icon">↗</span>
-      {label}
-    </a>
-  )
-}
-
-export default function HomePage() {
-  return (
-    <main>
-      <Header />
-
-      <section id="inicio" className="section hero">
-        <div className="container split hero-grid">
-          <div className="image-card hero-image" aria-label="Imagem de paciente placeholder">
-            <img src="/placeholder-hero.svg" alt="Placeholder de paciente sorrindo" />
-          </div>
-          <div className="hero-content">
+      <main>
+        <section id="inicio" className="section hero">
+          <Img label="PACIENTE / HERO" className="heroImg"/>
+          <div className="heroCopy">
             <p className="eyebrow">LENTES DE CONTATO DENTAL • SANTOS</p>
-            <h1>Lentes de contato dental que respeitam a naturalidade do seu sorriso.</h1>
-            <p className="lead">Cada sorriso possui características únicas. Na Bulhões, cada caso é planejado individualmente para alcançar equilíbrio, naturalidade e coerência com cada paciente.</p>
-            <p className="small-note"><strong>Resina ou porcelana:</strong> a técnica é escolhida a partir das necessidades de cada sorriso.</p>
-            <CTA />
+            <h1>Você quer colocar lentes de contato dental, mas tem medo de ficar artificial?</h1>
+            <p>Esse é um dos principais receios de quem pensa em colocar lentes de contato dental: mudar o sorriso e sentir que ele deixou de combinar com você.</p>
+            <p>Por isso, desenvolvemos uma forma própria de planejar e construir cada caso: o <b>Método Bulhões</b>. Um método que parte das características de cada paciente para criar sorrisos com <b>naturalidade, elegância e sofisticação</b>, sem padronizar aquilo que torna cada pessoa única.</p>
+            <CTA/>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section soft" id="beneficios">
-        <div className="container">
-          <div className="section-heading narrow">
-            <p className="eyebrow">POR QUE BULHÕES?</p>
-            <h2>Uma clínica construída em torno de um olhar especializado para lentes.</h2>
+        <section id="lentes" className="section trust">
+          <div className="trustCopy">
+            <p className="eyebrow">LENTES DE CONTATO DENTAL</p>
+            <h2>Por que tantas pessoas confiam na Bulhões Odontologia para transformar o sorriso?</h2>
+            <ul className="checks">
+              <li>Experiência em mais de 2.000 casos de lentes de contato dental</li>
+              <li>Metodologia própria: Método Bulhões</li>
+              <li>Acompanhamento humanizado do planejamento ao pós-procedimento</li>
+              <li>Resultados naturais, planejados para aliar estética e durabilidade</li>
+              <li>Corpo clínico multidisciplinar trabalhando de forma integrada</li>
+            </ul>
+            <CTA/>
           </div>
-          <div className="stats-grid">
-            <article><span>+X.XXX</span><p>casos realizados</p></article>
-            <article><span>Método Bulhões</span><p>planejamento e técnica próprios</p></article>
-            <article><span>Especialistas</span><p>em diferentes áreas da odontologia</p></article>
-            <article><span>Resina + Porcelana</span><p>duas técnicas, um mesmo compromisso com naturalidade</p></article>
+          <div className="trustVisual">
+            <Img label="PROCEDIMENTO / LENTES"/>
+            <div className="number"><b>+2.000</b><span>casos de lentes realizados</span></div>
           </div>
-          <CTA />
-        </div>
-      </section>
+        </section>
 
-      <section id="metodo" className="section dark-section">
-        <div className="container split method-grid">
-          <div>
-            <p className="eyebrow light">MÉTODO BULHÕES</p>
-            <h2>Naturalidade não acontece por acaso. Ela começa no planejamento.</h2>
-            <p>O Método Bulhões parte da individualidade de cada sorriso. Forma, textura, cor, proporção, função e características faciais são analisadas em conjunto antes de qualquer decisão estética.</p>
-            <p>Nesta primeira versão, o conteúdo é propositalmente enxuto. Depois substituímos por textos definitivos, números reais e detalhes técnicos aprovados pela clínica.</p>
-            <CTA label="CONHEÇA NOSSO PLANEJAMENTO" />
+        <section id="metodo" className="method">
+          <div className="methodIntro">
+            <p className="eyebrow">MÉTODO BULHÕES</p>
+            <h2>Cada sorriso é único. Por isso, nossa avaliação é personalizada.</h2>
+            <p>Através do <b>Método Bulhões</b>, nosso planejamento considera muito mais do que os dentes. Analisamos o sorriso em conjunto com as características do rosto, buscando entender a imagem que cada paciente deseja transmitir para construir um resultado verdadeiramente individual.</p>
           </div>
-          <div className="image-card method-image"><img src="/placeholder-method.svg" alt="Placeholder do Método Bulhões" /></div>
-        </div>
-      </section>
-
-      <section id="lentes" className="section">
-        <div className="container">
-          <div className="section-heading two-col-heading">
-            <div>
-              <p className="eyebrow">LENTES DE CONTATO DENTAL</p>
-              <h2>Escolhas diferentes para necessidades diferentes.</h2>
+          <div className="analysisVisual">
+            <Img label="FOTO FRONTAL / VISAGISMO"/>
+            <div className="labels">
+              <div><b>Cor dos olhos</b><span>Leitura de harmonia e características do rosto.</span></div>
+              <div><b>Tom de pele</b><span>Considerado na composição estética do sorriso.</span></div>
+              <div><b>Lábios</b><span>Relação entre tonalidade, volume e exposição dentária.</span></div>
+              <div><b>Curvatura do sorriso</b><span>Proporções e desenho em relação aos lábios.</span></div>
+              <div><b>Personalidade</b><span>O que o paciente deseja preservar ou transmitir.</span></div>
+              <div><b>Objetivo do paciente</b><span>O que deseja mudar e o que deseja manter.</span></div>
             </div>
-            <p>A indicação não começa pelo material. Começa pela análise do caso, das expectativas e das características que queremos preservar.</p>
           </div>
-          <div className="cards-grid lenses-grid">
-            {lenses.map((item) => (
-              <article className="editorial-card" key={item.title}>
-                <img src={item.image} alt="Placeholder de caso" />
-                <div className="card-body">
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                  <a href="#resultados">Conheça →</a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+          <p className="centerLine">Tudo com a expertise de uma equipe que cuida do seu sorriso com precisão e atenção aos detalhes.</p>
+          <div className="center"><CTA/></div>
+        </section>
 
-      <section id="resultados" className="section soft">
-        <div className="container">
-          <div className="section-heading narrow">
+        <section id="resultados" className="section results">
+          <div className="sectionHead">
             <p className="eyebrow">RESULTADOS</p>
-            <h2>Casos reais. Sorrisos diferentes. A mesma busca por naturalidade.</h2>
-            <p>Este bloco foi pensado como portfólio editorial. Depois entraremos com os melhores antes e depois da clínica, categorizados por técnica.</p>
+            <h2>Transformar sorrisos é transformar vidas.</h2>
+            <p>Conheça alguns dos sorrisos que fazem parte da nossa história.</p>
           </div>
-          <div className="results-grid">
-            <figure><img src="/placeholder-result-1.svg" alt="Resultado placeholder 1" /><figcaption>Lentes em Resina • Caso 01</figcaption></figure>
-            <figure><img src="/placeholder-result-2.svg" alt="Resultado placeholder 2" /><figcaption>Lentes em Porcelana • Caso 02</figcaption></figure>
-            <figure><img src="/placeholder-result-3.svg" alt="Resultado placeholder 3" /><figcaption>Retratamento • Caso 03</figcaption></figure>
+          <div className="cases">
+            {[
+              ["Lentes em Resina","DEPOIMENTO REAL DA PACIENTE"],
+              ["Lentes em Porcelana","DEPOIMENTO REAL DA PACIENTE"],
+              ["Retratamento de Lentes","DEPOIMENTO REAL DA PACIENTE"]
+            ].map(([title,quote],i)=><article className="case" key={title}>
+              <div className="beforeAfter"><Img label="ANTES"/><Img label="DEPOIS"/></div>
+              <h3>{title}</h3>
+              <div className="testimonial"><span>◉ @paciente</span><p>“{quote} — inserir print/depoimento aqui.”</p></div>
+            </article>)}
           </div>
-          <div className="center"><CTA label="QUERO REALIZAR UMA AVALIAÇÃO" /></div>
-        </div>
-      </section>
+          <div className="center"><CTA/></div>
+        </section>
 
-      <section id="tratamentos" className="section">
-        <div className="container">
-          <div className="section-heading two-col-heading">
-            <div>
-              <p className="eyebrow">ODONTOLOGIA COMPLETA</p>
-              <h2>Além das lentes, cuidamos de cada etapa do seu sorriso.</h2>
-            </div>
-            <p>Os demais tratamentos aparecem como suporte ao cuidado integral, sem competir com o posicionamento principal da Bulhões em lentes de contato dental.</p>
+        <section id="equipe" className="section team">
+          <div className="sectionHead">
+            <p className="eyebrow">EQUIPE</p>
+            <h2>Um sorriso bem planejado também é resultado de uma equipe que olha para o todo.</h2>
+            <p>Na Bulhões, cada profissional atua dentro da sua especialidade para que todas as necessidades identificadas durante o planejamento possam ser cuidadas de forma integrada.</p>
           </div>
-          <div className="treatments-list">
-            {treatments.map((t, i) => <div key={t}><span>0{i + 1}</span><strong>{t}</strong><span>→</span></div>)}
+          <div className="teamGrid">
+            {team.map(([name,spec,cro],i)=><article key={i}><Img label={`FOTO PROFISSIONAL ${i+1}`}/><h3>{name}</h3><p>{spec}</p><small>{cro}</small></article>)}
           </div>
-        </div>
-      </section>
+          <div className="center"><CTA/></div>
+        </section>
 
-      <section id="equipe" className="section dark-soft">
-        <div className="container">
-          <div className="section-heading narrow">
-            <p className="eyebrow light">EQUIPE BULHÕES</p>
-            <h2>Uma visão clínica compartilhada por diferentes especialidades.</h2>
-          </div>
-          <div className="team-grid">
-            {['Dra. Larissa Bulhões', 'Dra. XXXXX XXXXX', 'Dra. XXXXX XXXXX', 'Dra. XXXXX XXXXX'].map((name, i) => (
-              <article key={name + i}>
-                <img src={`/placeholder-team-${i + 1}.svg`} alt={`Placeholder ${name}`} />
-                <h3>{name}</h3>
-                <p>{i === 0 ? 'Fundadora • Método Bulhões' : 'Especialidade • CRO XXXXX'}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="clinica" className="section">
-        <div className="container split clinic-grid">
-          <div className="clinic-copy">
+        <section id="clinica" className="clinic">
+          <div className="sectionHead">
             <p className="eyebrow">A CLÍNICA</p>
             <h2>Uma experiência pensada nos detalhes.</h2>
             <p>Ambientes, equipe e atendimento organizados para que cada etapa seja clara, confortável e coerente com a experiência Bulhões.</p>
-            <p>Depois inserimos as fotografias reais da recepção, consultórios, detalhes arquitetônicos e bastidores.</p>
-            <CTA />
           </div>
-          <div className="clinic-collage">
-            <img src="/placeholder-clinic-1.svg" alt="Clínica placeholder 1" />
-            <img src="/placeholder-clinic-2.svg" alt="Clínica placeholder 2" />
-          </div>
-        </div>
-      </section>
+          <div className="clinicGallery"><Img label="RECEPÇÃO"/><Img label="CONSULTÓRIO"/><Img label="DETALHES DA CLÍNICA"/></div>
+          <div className="center"><CTA/></div>
+        </section>
 
-      <section className="section soft" id="depoimentos">
-        <div className="container">
-          <div className="section-heading narrow">
-            <p className="eyebrow">PACIENTES</p>
-            <h2>O que fica depois do tratamento.</h2>
+        <section id="tratamentos" className="section treatments">
+          <div className="sectionHead">
+            <p className="eyebrow">OUTROS CUIDADOS</p>
+            <h2>Um cuidado completo para o seu sorriso.</h2>
+            <p>Além das lentes de contato dental, a Bulhões conta com um corpo clínico multidisciplinar para cuidar de outras necessidades relacionadas à saúde, função e estética.</p>
           </div>
-          <div className="testimonial-grid">
-            {[1,2,3].map((n) => (
-              <blockquote key={n}>
-                “Depoimento real do paciente entra aqui. Nesta fase estamos mantendo o conteúdo neutro apenas para validar hierarquia, espaçamento e experiência.”
-                <footer>Paciente XXXXX • Google / Vídeo</footer>
-              </blockquote>
-            ))}
+          <div className="treatmentGrid">
+            <article><Img label="TRATAMENTOS CLÍNICOS"/><h3>Tratamentos Clínicos</h3><p>Saúde, prevenção e cuidado contínuo do sorriso.</p></article>
+            <article><Img label="HARMONIZAÇÃO FACIAL"/><h3>Harmonização Facial</h3><p>Equilíbrio e harmonia facial com planejamento individualizado.</p></article>
+            <article><Img label="IMPLANTES"/><h3>Implantes</h3><p>Reabilitação do sorriso unindo função e estética.</p></article>
           </div>
-        </div>
-      </section>
+          <div className="center"><CTA/></div>
+        </section>
 
-      <section id="faq" className="section">
-        <div className="container faq-grid">
-          <div className="faq-intro">
-            <p className="eyebrow">FAQ</p>
-            <h2>Dúvidas frequentes sobre lentes.</h2>
-            <p>Respostas curtas, objetivas e responsáveis. Depois revisamos cada uma tecnicamente antes da publicação.</p>
+        <section id="endereco" className="location">
+          <div className="sectionHead">
+            <p className="eyebrow">SANTOS • SP</p>
+            <h2>Como chegar à Bulhões?</h2>
+            <p>Bulhões Odontologia<br/><b>ENDEREÇO COMPLETO — Santos, SP</b></p>
           </div>
-          <div className="faq-list">
-            {faqs.map(([q, a], i) => (
-              <details key={q} open={i === 0}>
-                <summary>{q}</summary>
-                <p>{a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="endereco" className="section address-section">
-        <div className="container split address-grid">
-          <div>
-            <p className="eyebrow light">ENDEREÇO</p>
-            <h2>Bulhões Odontologia</h2>
-            <p>Rua XXXXX, nº XXX<br/>Bairro XXXXX • Santos — SP</p>
-            <p>Segunda a sexta: XXh às XXh<br/>Sábado: XXh às XXh</p>
-            <p>Telefone: (13) XXXX-XXXX<br/>WhatsApp: (13) XXXXX-XXXX</p>
-            <CTA label="COMO CHEGAR" />
-          </div>
-          <div className="map-placeholder">MAPA / GOOGLE MAPS</div>
-        </div>
-      </section>
-
-      <footer className="site-footer">
-        <div className="container footer-grid">
-          <div className="brand footer-brand">
-            <div className="brand-mark">B</div>
-            <div className="brand-copy">
-              <strong>BULHÕES</strong>
-              <span>ODONTOLOGIA</span>
-              <em>Naturalidade é o nosso maior luxo.</em>
+          <div className="map">
+            <div className="mapMock"><span>MAPA INTERATIVO<br/>GOOGLE MAPS</span><i>●</i></div>
+            <div className="routes">
+              <a href="#" onClick={(e)=>e.preventDefault()}>TRAÇAR ROTA NO GOOGLE MAPS</a>
+              <a href="#" onClick={(e)=>e.preventDefault()}>TRAÇAR ROTA NO WAZE</a>
             </div>
           </div>
-          <div>
-            <strong>Navegação</strong>
-            <a href="#lentes">Lentes</a>
-            <a href="#metodo">Método Bulhões</a>
-            <a href="#resultados">Resultados</a>
-            <a href="#tratamentos">Tratamentos</a>
-          </div>
-          <div>
-            <strong>Institucional</strong>
-            <a href="#equipe">Equipe</a>
-            <a href="#clinica">Clínica</a>
-            <a href="#faq">FAQ</a>
-            <a href="#endereco">Endereço</a>
-          </div>
-          <div>
-            <strong>Contato</strong>
-            <p>WhatsApp: XXXXX</p>
-            <p>Instagram: @XXXXX</p>
-            <p>CRO: XXXXX</p>
-          </div>
-        </div>
-        <div className="container footer-bottom">© 2026 Bulhões Odontologia • Política de Privacidade</div>
-      </footer>
+        </section>
+      </main>
 
-      <a className="floating-whatsapp" href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noreferrer" aria-label="WhatsApp">✆</a>
-    </main>
-  )
+      <footer>
+        <div className="footerBrand"><strong>BULHÕES</strong><span>ODONTOLOGIA</span><em>Naturalidade é o nosso maior luxo.</em></div>
+        <div><b>Contato</b><p>WhatsApp: (XX) XXXXX-XXXX<br/>Instagram: @XXXXXXXX</p></div>
+        <div><b>Endereço</b><p>XXXXXXXX<br/>Santos — SP</p></div>
+        <div><b>Responsável técnico</b><p>Dr(a). XXXXX<br/>CRO XXXXX</p></div>
+      </footer>
+      <a className="floatingWa" href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noreferrer" aria-label="WhatsApp">◔</a>
+    </>
+  );
 }
