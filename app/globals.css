@@ -35,7 +35,6 @@ body {
 
 .header {
   min-height: 116px;
-
   position: sticky;
   top: 0;
   z-index: 50;
@@ -66,7 +65,6 @@ body {
 .brandSymbol {
   width: 70px;
   height: 70px;
-
   object-fit: contain;
 }
 
@@ -74,12 +72,10 @@ body {
   display: block;
 
   font-family: "Cormorant Garamond", Georgia, serif;
-
   font-size: 30px;
   font-weight: 500;
 
   line-height: 0.9;
-
   letter-spacing: 3px;
 }
 
@@ -102,7 +98,6 @@ body {
   color: var(--bege-principal);
 
   font-family: "Cormorant Garamond", Georgia, serif;
-
   font-size: 15px;
   font-weight: 500;
 }
@@ -112,7 +107,6 @@ body {
   align-items: center;
 
   gap: 27px;
-
   margin-left: 35px;
 }
 
@@ -123,7 +117,6 @@ body {
   font-weight: 400;
 
   text-decoration: none;
-
   white-space: nowrap;
 
   transition: color 0.2s ease;
@@ -142,7 +135,6 @@ body {
 .clinic,
 .location {
   padding: 78px 5.5%;
-
   scroll-margin-top: 116px;
 }
 
@@ -155,7 +147,6 @@ body {
   font-weight: 600;
 
   letter-spacing: 5px;
-
   text-transform: uppercase;
 }
 
@@ -183,7 +174,6 @@ body {
   font-weight: 500;
 
   letter-spacing: 5px;
-
   text-align: center;
 
   overflow: hidden;
@@ -195,16 +185,9 @@ body {
 
 .hero {
   width: 100%;
-
   min-height: 710px;
 
   display: grid;
-
-  /*
-    IMPORTANTE:
-    minmax(0, 1fr) impede que a imagem aumente
-    a largura da coluna por causa do tamanho original.
-  */
 
   grid-template-columns:
     minmax(0, 1fr)
@@ -218,7 +201,6 @@ body {
 .heroPhoto {
   width: 100%;
   min-width: 0;
-
   height: 610px;
 
   overflow: hidden;
@@ -226,26 +208,15 @@ body {
   border-radius: 22px;
 
   background: var(--bege-claro);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .heroPhoto img {
-  /*
-    A FOTO AGORA OBEDECE À MOLDURA.
-    Como essa montagem já tem composição própria,
-    mostramos a imagem inteira.
-  */
-
   width: 100%;
   height: 100%;
 
   display: block;
 
-  object-fit: contain;
-
+  object-fit: cover;
   object-position: center center;
 }
 
@@ -264,7 +235,6 @@ body {
   font-family: "Cormorant Garamond", Georgia, serif;
 
   font-size: clamp(42px, 3.15vw, 54px);
-
   font-weight: 500;
 
   line-height: 1;
@@ -326,7 +296,6 @@ body {
 
 .cta:hover {
   background: var(--whatsapp-hover);
-
   transform: translateY(-1px);
 }
 
@@ -362,7 +331,6 @@ body {
   font-family: "Cormorant Garamond", Georgia, serif;
 
   font-size: clamp(37px, 3vw, 52px);
-
   font-weight: 500;
 
   line-height: 1.05;
@@ -370,9 +338,7 @@ body {
 
 .checks {
   margin: 26px 0;
-
   padding: 0;
-
   list-style: none;
 }
 
@@ -384,7 +350,6 @@ body {
     12px 38px;
 
   font-size: 15px;
-
   line-height: 1.55;
 }
 
@@ -405,7 +370,6 @@ body {
   border-radius: 50%;
 
   background: #eaf9ef;
-
   color: #27ae60;
 
   font-weight: 700;
@@ -430,7 +394,6 @@ body {
   border-radius: 13px;
 
   background: var(--bege-principal);
-
   color: #ffffff;
 
   text-align: center;
@@ -474,7 +437,6 @@ body {
 .methodIntro > p:last-child,
 .sectionHead > p:last-child {
   font-size: 15px;
-
   line-height: 1.7;
 }
 
@@ -512,7 +474,6 @@ body {
   border-radius: 8px;
 
   background: rgba(58, 47, 40, 0.82);
-
   color: #ffffff;
 }
 
@@ -529,7 +490,6 @@ body {
   margin-top: 4px;
 
   font-size: 11px;
-
   line-height: 1.45;
 
   opacity: 0.85;
@@ -604,7 +564,6 @@ body {
   font-family: "Cormorant Garamond", Georgia, serif;
 
   font-size: 27px;
-
   font-weight: 500;
 }
 
@@ -614,7 +573,6 @@ body {
   padding: 14px 16px;
 
   border: 1px solid #e3dcd5;
-
   border-radius: 10px;
 
   background: #f8f7f5;
@@ -630,7 +588,6 @@ body {
   margin-bottom: 0;
 
   font-size: 12px;
-
   line-height: 1.5;
 }
 
@@ -665,7 +622,6 @@ body {
   font-family: "Cormorant Garamond", Georgia, serif;
 
   font-size: 24px;
-
   font-weight: 500;
 }
 
@@ -687,7 +643,6 @@ body {
 
 .clinic {
   background: var(--bege-principal);
-
   color: #ffffff;
 }
 
@@ -745,7 +700,6 @@ body {
   font-family: "Cormorant Garamond", Georgia, serif;
 
   font-size: 29px;
-
   font-weight: 500;
 }
 
@@ -753,7 +707,6 @@ body {
   color: var(--texto-suave);
 
   font-size: 13px;
-
   line-height: 1.55;
 }
 
@@ -799,7 +752,6 @@ body {
   font-size: 12px;
 
   letter-spacing: 4px;
-
   text-align: center;
 }
 
@@ -847,7 +799,6 @@ body {
   font-weight: 600;
 
   text-align: center;
-
   text-decoration: none;
 }
 
@@ -867,11 +818,9 @@ footer {
   padding: 55px 5.5%;
 
   background: #302721;
-
   color: #eee9e4;
 
   font-size: 12px;
-
   line-height: 1.65;
 }
 
@@ -881,7 +830,6 @@ footer {
   font-family: "Cormorant Garamond", Georgia, serif;
 
   font-size: 34px;
-
   font-weight: 500;
 
   letter-spacing: 3px;
@@ -943,12 +891,36 @@ footer {
 
 .floatingWa:hover {
   background: var(--whatsapp-hover);
-
   transform: scale(1.04);
 }
 
 /* =====================================================
-   DESKTOP MENOR / TABLET
+   REGRA GLOBAL PARA FOTOS REAIS
+===================================================== */
+
+/*
+  Sempre que substituirmos placeholder por foto real,
+  a imagem deve preencher 100% da moldura.
+*/
+
+.heroPhoto img,
+.realPhoto img,
+.casePhoto img,
+.teamPhoto img,
+.clinicPhoto img,
+.treatmentPhoto img,
+.methodPhoto img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* =====================================================
+   DESKTOP MENOR
 ===================================================== */
 
 @media (max-width: 1200px) {
@@ -960,6 +932,10 @@ footer {
     font-size: 12px;
   }
 }
+
+/* =====================================================
+   TABLET
+===================================================== */
 
 @media (max-width: 1100px) {
   .header nav {
@@ -977,13 +953,7 @@ footer {
 
   .heroPhoto {
     width: 100%;
-    height: auto;
-
-    aspect-ratio: 4 / 5;
-  }
-
-  .heroPhoto img {
-    object-fit: contain;
+    height: 560px;
   }
 
   .number {
@@ -1035,16 +1005,14 @@ footer {
 
   .heroPhoto {
     width: 100%;
-    height: auto;
-
-    aspect-ratio: 4 / 5;
+    height: 500px;
 
     border-radius: 16px;
   }
 
   .heroPhoto img {
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
+    object-position: center center;
   }
 
   .hero h1 {
