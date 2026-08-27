@@ -23,28 +23,36 @@ html {
 
 body {
   margin: 0;
+
   background: var(--off-white);
   color: var(--texto);
+
   font-family: "Fahkwang", Arial, sans-serif;
 }
 
-/* =========================
+/* ======================================
    HEADER
-========================= */
+====================================== */
 
 .header {
   min-height: 116px;
+
   position: sticky;
+
   top: 0;
+
   z-index: 50;
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
   padding: 16px 5%;
 
   background: rgba(239, 239, 237, 0.97);
+
   backdrop-filter: blur(12px);
 
   border-bottom: 1px solid rgba(161, 139, 108, 0.22);
@@ -52,16 +60,21 @@ body {
 
 .brand {
   display: flex;
+
   align-items: center;
+
   gap: 15px;
 
   color: inherit;
+
   text-decoration: none;
 }
 
 .brandSymbol {
-  width: 68px;
-  height: 68px;
+  width: 70px;
+
+  height: 70px;
+
   object-fit: contain;
 }
 
@@ -69,10 +82,13 @@ body {
   display: block;
 
   font-family: "Cormorant Garamond", Georgia, serif;
+
   font-size: 30px;
+
   font-weight: 500;
 
   line-height: 0.9;
+
   letter-spacing: 3px;
 }
 
@@ -82,6 +98,7 @@ body {
   margin-top: 7px;
 
   font-size: 9px;
+
   font-weight: 500;
 
   letter-spacing: 4px;
@@ -95,13 +112,17 @@ body {
   color: var(--bege-principal);
 
   font-family: "Cormorant Garamond", Georgia, serif;
+
   font-size: 15px;
+
   font-weight: 500;
 }
 
 .header nav {
   display: flex;
+
   align-items: center;
+
   gap: 27px;
 }
 
@@ -109,6 +130,7 @@ body {
   color: #544840;
 
   font-size: 13px;
+
   font-weight: 400;
 
   text-decoration: none;
@@ -120,15 +142,16 @@ body {
   color: var(--bege-principal);
 }
 
-/* =========================
-   BASE
-========================= */
+/* ======================================
+   ESTRUTURA
+====================================== */
 
 .section,
 .method,
 .clinic,
 .location {
   padding: 78px 5.5%;
+
   scroll-margin-top: 116px;
 }
 
@@ -138,6 +161,7 @@ body {
   color: var(--bege-principal);
 
   font-size: 11px;
+
   font-weight: 600;
 
   letter-spacing: 5px;
@@ -145,10 +169,15 @@ body {
   text-transform: uppercase;
 }
 
+/* ======================================
+   PLACEHOLDERS
+====================================== */
+
 .ph {
   min-height: 330px;
 
   display: grid;
+
   place-items: center;
 
   background:
@@ -163,6 +192,7 @@ body {
   color: #755f50;
 
   font-size: 12px;
+
   font-weight: 500;
 
   letter-spacing: 5px;
@@ -170,22 +200,50 @@ body {
   text-align: center;
 }
 
-/* =========================
+/* ======================================
    HERO
-========================= */
+====================================== */
 
 .hero {
   min-height: 710px;
 
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   align-items: center;
 
-  gap: 70px;
+  gap: 68px;
 }
 
-.heroImg {
+.heroPhoto {
+  width: 100%;
+
   height: 600px;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background: var(--bege-claro);
+}
+
+.heroPhoto img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  /*
+    Como a montagem possui paciente à esquerda
+    e detalhe do sorriso à direita, começamos
+    deixando o centro da imagem como referência.
+  */
+
+  object-position: center center;
 }
 
 .heroCopy {
@@ -199,10 +257,11 @@ body {
 
   font-family: "Cormorant Garamond", Georgia, serif;
 
-  font-size: clamp(44px, 3.6vw, 59px);
+  font-size: clamp(44px, 3.55vw, 58px);
+
   font-weight: 500;
 
-  line-height: 0.98;
+  line-height: 0.99;
 
   letter-spacing: -1.4px;
 }
@@ -211,6 +270,7 @@ body {
   max-width: 650px;
 
   font-size: 16px;
+
   font-weight: 400;
 
   line-height: 1.7;
@@ -220,18 +280,21 @@ body {
   font-weight: 600;
 }
 
-/* =========================
+/* ======================================
    CTA WHATSAPP
-========================= */
+====================================== */
 
 .cta {
   width: 100%;
+
   max-width: 610px;
 
   margin-top: 29px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 11px;
@@ -241,16 +304,20 @@ body {
   border-radius: 9px;
 
   background: var(--whatsapp);
+
   color: #ffffff;
 
   font-size: 13px;
+
   font-weight: 600;
 
   letter-spacing: 0.3px;
 
   text-decoration: none;
 
-  box-shadow: 0 9px 25px rgba(37, 211, 102, 0.16);
+  box-shadow:
+    0 9px 25px
+    rgba(37, 211, 102, 0.16);
 
   transition:
     background 0.2s ease,
@@ -259,18 +326,21 @@ body {
 
 .cta:hover {
   background: var(--whatsapp-hover);
+
   transform: translateY(-1px);
 }
 
-/* =========================
-   BLOCO CONFIANÇA
-========================= */
+/* ======================================
+   BLOCO 2
+====================================== */
 
 .trust {
   background: #ffffff;
 
   display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
+
+  grid-template-columns:
+    0.92fr 1.08fr;
 
   gap: 75px;
 
@@ -283,9 +353,14 @@ body {
 .location h2 {
   margin: 15px 0 28px;
 
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
-  font-size: clamp(37px, 3vw, 52px);
+  font-size:
+    clamp(37px, 3vw, 52px);
+
   font-weight: 500;
 
   line-height: 1.05;
@@ -302,7 +377,9 @@ body {
 .checks li {
   position: relative;
 
-  padding: 12px 0 12px 38px;
+  padding:
+    12px 0
+    12px 38px;
 
   font-size: 15px;
 
@@ -315,17 +392,21 @@ body {
   position: absolute;
 
   left: 0;
+
   top: 11px;
 
   width: 22px;
+
   height: 22px;
 
   display: grid;
+
   place-items: center;
 
   border-radius: 50%;
 
   background: #eaf9ef;
+
   color: #27ae60;
 
   font-weight: 700;
@@ -343,26 +424,30 @@ body {
   position: absolute;
 
   left: -56px;
+
   top: 42%;
 
   padding: 25px 35px;
 
   border-radius: 13px;
 
-  background: var(--bege-principal);
+  background:
+    var(--bege-principal);
+
   color: #ffffff;
 
   text-align: center;
 
-  box-shadow: 0 16px 35px rgba(92, 72, 55, 0.18);
+  box-shadow:
+    0 16px 35px
+    rgba(92, 72, 55, 0.18);
 }
 
 .number b {
   display: block;
 
-  font-family: "Fahkwang", sans-serif;
-
   font-size: 46px;
+
   font-weight: 600;
 }
 
@@ -374,18 +459,20 @@ body {
   font-size: 13px;
 }
 
-/* =========================
+/* ======================================
    MÉTODO
-========================= */
+====================================== */
 
 .method {
-  background: var(--bege-claro);
+  background:
+    var(--bege-claro);
 }
 
 .methodIntro {
   max-width: 890px;
 
-  margin: 0 auto 45px;
+  margin:
+    0 auto 45px;
 
   text-align: center;
 }
@@ -413,24 +500,31 @@ body {
   position: absolute;
 
   top: 28px;
+
   right: 28px;
+
   bottom: 28px;
 
   width: 35%;
 
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
 
   gap: 9px;
 }
 
 .labels div {
-  padding: 12px 15px;
+  padding:
+    12px 15px;
 
   border-radius: 8px;
 
-  background: rgba(58, 47, 40, 0.82);
+  background:
+    rgba(58, 47, 40, 0.82);
+
   color: #ffffff;
 }
 
@@ -456,7 +550,8 @@ body {
 .centerLine {
   max-width: 900px;
 
-  margin: 32px auto 0;
+  margin:
+    32px auto 0;
 
   text-align: center;
 
@@ -465,16 +560,18 @@ body {
 
 .center {
   display: flex;
+
   justify-content: center;
 }
 
 .center .cta {
-  width: min(700px, 100%);
+  width:
+    min(700px, 100%);
 }
 
-/* =========================
+/* ======================================
    RESULTADOS
-========================= */
+====================================== */
 
 .results {
   background: #ffffff;
@@ -483,7 +580,8 @@ body {
 .sectionHead {
   max-width: 900px;
 
-  margin: 0 auto 45px;
+  margin:
+    0 auto 45px;
 
   text-align: center;
 }
@@ -491,7 +589,8 @@ body {
 .cases {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:
+    repeat(3, 1fr);
 
   gap: 25px;
 }
@@ -499,7 +598,8 @@ body {
 .beforeAfter {
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
 
   gap: 5px;
 }
@@ -511,11 +611,16 @@ body {
 }
 
 .case h3 {
-  margin: 17px 0 11px;
+  margin:
+    17px 0 11px;
 
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
   font-size: 27px;
+
   font-weight: 500;
 }
 
@@ -524,7 +629,9 @@ body {
 
   padding: 14px 16px;
 
-  border: 1px solid #e3dcd5;
+  border:
+    1px solid #e3dcd5;
+
   border-radius: 10px;
 
   background: #f8f7f5;
@@ -544,18 +651,20 @@ body {
   line-height: 1.5;
 }
 
-/* =========================
+/* ======================================
    EQUIPE
-========================= */
+====================================== */
 
 .team {
-  background: var(--off-white);
+  background:
+    var(--off-white);
 }
 
 .teamGrid {
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns:
+    repeat(4, 1fr);
 
   gap: 20px;
 }
@@ -565,16 +674,22 @@ body {
 }
 
 .teamGrid h3 {
-  margin: 15px 0 6px;
+  margin:
+    15px 0 6px;
 
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
   font-size: 24px;
+
   font-weight: 500;
 }
 
 .teamGrid p {
-  margin: 0 0 5px;
+  margin:
+    0 0 5px;
 
   font-size: 12px;
 }
@@ -585,12 +700,14 @@ body {
   font-size: 10px;
 }
 
-/* =========================
+/* ======================================
    CLÍNICA
-========================= */
+====================================== */
 
 .clinic {
-  background: var(--bege-principal);
+  background:
+    var(--bege-principal);
+
   color: #ffffff;
 }
 
@@ -601,7 +718,8 @@ body {
 .clinicGallery {
   display: grid;
 
-  grid-template-columns: 1.3fr 0.85fr 0.85fr;
+  grid-template-columns:
+    1.3fr 0.85fr 0.85fr;
 
   gap: 16px;
 }
@@ -614,9 +732,9 @@ body {
   margin-top: 38px;
 }
 
-/* =========================
+/* ======================================
    TRATAMENTOS
-========================= */
+====================================== */
 
 .treatments {
   background: #ffffff;
@@ -625,7 +743,8 @@ body {
 .treatmentGrid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:
+    repeat(3, 1fr);
 
   gap: 24px;
 }
@@ -635,28 +754,35 @@ body {
 }
 
 .treatmentGrid h3 {
-  margin: 18px 0 8px;
+  margin:
+    18px 0 8px;
 
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
   font-size: 29px;
+
   font-weight: 500;
 }
 
 .treatmentGrid p {
-  color: var(--texto-suave);
+  color:
+    var(--texto-suave);
 
   font-size: 13px;
 
   line-height: 1.55;
 }
 
-/* =========================
-   LOCALIZAÇÃO
-========================= */
+/* ======================================
+   ENDEREÇO
+====================================== */
 
 .location {
-  background: var(--off-white);
+  background:
+    var(--off-white);
 }
 
 .map {
@@ -675,6 +801,7 @@ body {
   position: relative;
 
   display: grid;
+
   place-items: center;
 
   background:
@@ -700,7 +827,8 @@ body {
 .mapMock i {
   position: absolute;
 
-  color: var(--bege-principal);
+  color:
+    var(--bege-principal);
 
   font-size: 55px;
 
@@ -711,12 +839,15 @@ body {
   position: absolute;
 
   left: 12%;
+
   right: 12%;
+
   bottom: 10px;
 
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
 
   gap: 18px;
 
@@ -724,7 +855,8 @@ body {
 
   border-radius: 16px;
 
-  background: var(--bege-principal);
+  background:
+    var(--bege-principal);
 }
 
 .routes a {
@@ -733,29 +865,36 @@ body {
   border-radius: 999px;
 
   background: #ffffff;
-  color: var(--bege-principal);
+
+  color:
+    var(--bege-principal);
 
   font-size: 11px;
+
   font-weight: 600;
 
   text-align: center;
+
   text-decoration: none;
 }
 
-/* =========================
+/* ======================================
    FOOTER
-========================= */
+====================================== */
 
 footer {
   display: grid;
 
-  grid-template-columns: 1.5fr repeat(3, 1fr);
+  grid-template-columns:
+    1.5fr
+    repeat(3, 1fr);
 
   gap: 40px;
 
   padding: 55px 5.5%;
 
   background: #302721;
+
   color: #eee9e4;
 
   font-size: 12px;
@@ -766,9 +905,13 @@ footer {
 .footerBrand strong {
   display: block;
 
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
   font-size: 34px;
+
   font-weight: 500;
 
   letter-spacing: 3px;
@@ -787,39 +930,50 @@ footer {
 
   margin-top: 8px;
 
-  color: var(--bege-claro);
+  color:
+    var(--bege-claro);
 
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
   font-size: 14px;
 }
 
-/* =========================
+/* ======================================
    WHATSAPP FLUTUANTE
-========================= */
+====================================== */
 
 .floatingWa {
   position: fixed;
 
   right: 27px;
+
   bottom: 27px;
 
   z-index: 60;
 
   width: 62px;
+
   height: 62px;
 
   display: grid;
+
   place-items: center;
 
   border-radius: 50%;
 
-  background: var(--whatsapp);
+  background:
+    var(--whatsapp);
+
   color: #ffffff;
 
   text-decoration: none;
 
-  box-shadow: 0 11px 28px rgba(0, 0, 0, 0.18);
+  box-shadow:
+    0 11px 28px
+    rgba(0, 0, 0, 0.18);
 
   transition:
     background 0.2s ease,
@@ -827,14 +981,16 @@ footer {
 }
 
 .floatingWa:hover {
-  background: var(--whatsapp-hover);
+  background:
+    var(--whatsapp-hover);
 
-  transform: scale(1.04);
+  transform:
+    scale(1.04);
 }
 
-/* =========================
-   RESPONSIVO
-========================= */
+/* ======================================
+   TABLET
+====================================== */
 
 @media (max-width: 1100px) {
   .header nav {
@@ -850,8 +1006,8 @@ footer {
     gap: 38px;
   }
 
-  .heroImg {
-    height: 500px;
+  .heroPhoto {
+    height: 520px;
   }
 
   .number {
@@ -859,9 +1015,14 @@ footer {
   }
 
   .teamGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 }
+
+/* ======================================
+   MOBILE
+====================================== */
 
 @media (max-width: 720px) {
   .header {
@@ -872,6 +1033,7 @@ footer {
 
   .brandSymbol {
     width: 52px;
+
     height: 52px;
   }
 
@@ -896,14 +1058,21 @@ footer {
     min-height: auto;
   }
 
+  .heroPhoto {
+    height: 450px;
+
+    border-radius: 16px;
+  }
+
+  .heroPhoto img {
+    object-position:
+      center center;
+  }
+
   .hero h1 {
     font-size: 42px;
 
     line-height: 1;
-  }
-
-  .heroImg {
-    height: 430px;
   }
 
   .heroCopy > p:not(.eyebrow) {
@@ -917,7 +1086,9 @@ footer {
 
   .number {
     left: 12px;
+
     top: auto;
+
     bottom: 18px;
   }
 
@@ -968,9 +1139,11 @@ footer {
 
   .floatingWa {
     width: 58px;
+
     height: 58px;
 
     right: 18px;
+
     bottom: 18px;
   }
 }
