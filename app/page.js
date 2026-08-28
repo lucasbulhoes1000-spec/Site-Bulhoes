@@ -5,6 +5,18 @@ import { useState } from "react";
 const WHATSAPP_URL = "https://wa.me/5513996300176";
 const INSTAGRAM_URL = "https://www.instagram.com/bulhoesodontologia/";
 
+const GOOGLE_MAPS_URL =
+  "https://www.google.com/maps/dir/?api=1&destination=Avenida+Senador+Feij%C3%B3,+686,+Vila+Matias,+Santos,+SP,+11015-504";
+
+const WAZE_URL =
+  "https://www.waze.com/ul?q=Avenida%20Senador%20Feij%C3%B3%2C%20686%2C%20Vila%20Matias%2C%20Santos%2C%20SP%2C%2011015-504&navigate=yes";
+
+const trackEvent = (eventName, parameters = {}) => {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", eventName, parameters);
+  }
+};
+
 const WhatsAppIcon = ({ size = 22 }) => (
   <svg
     width={size}
@@ -17,12 +29,18 @@ const WhatsAppIcon = ({ size = 22 }) => (
   </svg>
 );
 
-const CTA = () => (
+const CTA = ({ location }) => (
   <a
     className="cta"
     href={WHATSAPP_URL}
     target="_blank"
     rel="noreferrer"
+    onClick={() =>
+      trackEvent("whatsapp_click", {
+        click_location: location,
+        link_url: WHATSAPP_URL,
+      })
+    }
   >
     <WhatsAppIcon size={23} />
     <span>AGENDAR AVALIAÇÃO PERSONALIZADA</span>
@@ -164,7 +182,7 @@ export default function Home() {
               único!
             </p>
 
-            <CTA />
+            <CTA location="hero" />
           </div>
         </section>
 
@@ -203,7 +221,7 @@ export default function Home() {
               </li>
             </ul>
 
-            <CTA />
+            <CTA location="lentes" />
           </div>
 
           <div className="trustVisual">
@@ -359,7 +377,7 @@ export default function Home() {
           </p>
 
           <div className="center">
-            <CTA />
+            <CTA location="metodo" />
           </div>
         </section>
 
@@ -472,7 +490,7 @@ export default function Home() {
           </div>
 
           <div className="center">
-            <CTA />
+            <CTA location="resultados" />
           </div>
         </section>
 
@@ -613,7 +631,7 @@ export default function Home() {
           </div>
 
           <div className="center">
-            <CTA />
+            <CTA location="equipe" />
           </div>
         </section>
 
@@ -670,7 +688,7 @@ export default function Home() {
           </div>
 
           <div className="center">
-            <CTA />
+            <CTA location="clinica" />
           </div>
         </section>
 
@@ -746,7 +764,7 @@ export default function Home() {
           </div>
 
           <div className="center">
-            <CTA />
+            <CTA location="tratamentos" />
           </div>
         </section>
 
@@ -787,17 +805,29 @@ export default function Home() {
 
             <div className="routes">
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Avenida+Senador+Feij%C3%B3,+686,+Vila+Matias,+Santos,+SP,+11015-504"
+                href={GOOGLE_MAPS_URL}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() =>
+                  trackEvent("google_maps_click", {
+                    click_location: "endereco",
+                    link_url: GOOGLE_MAPS_URL,
+                  })
+                }
               >
                 TRAÇAR ROTA NO GOOGLE MAPS
               </a>
 
               <a
-                href="https://www.waze.com/ul?q=Avenida%20Senador%20Feij%C3%B3%2C%20686%2C%20Vila%20Matias%2C%20Santos%2C%20SP%2C%2011015-504&navigate=yes"
+                href={WAZE_URL}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() =>
+                  trackEvent("waze_click", {
+                    click_location: "endereco",
+                    link_url: WAZE_URL,
+                  })
+                }
               >
                 TRAÇAR ROTA NO WAZE
               </a>
@@ -833,6 +863,12 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
               className="footerLink"
+              onClick={() =>
+                trackEvent("whatsapp_click", {
+                  click_location: "footer",
+                  link_url: WHATSAPP_URL,
+                })
+              }
             >
               WhatsApp: (13) 99630-0176
             </a>
@@ -844,6 +880,12 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
               className="footerLink"
+              onClick={() =>
+                trackEvent("instagram_click", {
+                  click_location: "footer",
+                  link_url: INSTAGRAM_URL,
+                })
+              }
             >
               Instagram: @bulhoesodontologia
             </a>
@@ -874,6 +916,12 @@ export default function Home() {
         target="_blank"
         rel="noreferrer"
         aria-label="Falar com a Bulhões pelo WhatsApp"
+        onClick={() =>
+          trackEvent("whatsapp_click", {
+            click_location: "floating_button",
+            link_url: WHATSAPP_URL,
+          })
+        }
       >
         <WhatsAppIcon size={31} />
       </a>
