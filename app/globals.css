@@ -635,9 +635,10 @@ a {
   object-position: center 20%;
 }
 
+/* CHRISTY CORRIGIDA */
 .teamPhoto img.teamZoomChristy {
-  transform: scale(1.12);
-  object-position: center 18%;
+  transform: scale(1.48);
+  object-position: center 28%;
 }
 
 .teamPhoto img.teamZoomLethicia {
@@ -1074,7 +1075,6 @@ footer {
     bottom: auto;
     width: 100%;
     margin-top: 12px;
-
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: none;
