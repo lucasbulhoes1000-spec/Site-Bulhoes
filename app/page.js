@@ -29,23 +29,6 @@ const CTA = () => (
   </a>
 );
 
-function FallbackImage({ sources, alt, className = "" }) {
-  const [index, setIndex] = useState(0);
-
-  return (
-    <img
-      src={sources[index]}
-      alt={alt}
-      className={className}
-      onError={() => {
-        if (index < sources.length - 1) {
-          setIndex((current) => current + 1);
-        }
-      }}
-    />
-  );
-}
-
 export default function Home() {
   const heroImages = [
     "/hero-bulhoes.png",
@@ -316,7 +299,7 @@ export default function Home() {
               preserveAspectRatio="none"
               aria-hidden="true"
             >
-              {/* OLHO - LEVEMENTE NA DIAGONAL DA ÍRIS */}
+              {/* OLHO */}
               <polyline
                 points="760,79 700,79 545,188"
                 className="visagismLine"
@@ -329,7 +312,7 @@ export default function Home() {
                 className="visagismPoint"
               />
 
-              {/* TOM DE PELE - BOCHECHA */}
+              {/* TOM DE PELE */}
               <polyline
                 points="760,181 700,181 540,295"
                 className="visagismLine"
@@ -342,7 +325,7 @@ export default function Home() {
                 className="visagismPoint"
               />
 
-              {/* LÁBIOS - AGORA NO LÁBIO, NÃO NOS DENTES */}
+              {/* LÁBIOS */}
               <polyline
                 points="760,283 695,283 430,410"
                 className="visagismLine"
@@ -355,7 +338,7 @@ export default function Home() {
                 className="visagismPoint"
               />
 
-              {/* CURVATURA - CANTO REAL DO SORRISO */}
+              {/* CURVATURA */}
               <polyline
                 points="760,385 695,385 515,388"
                 className="visagismLine"
@@ -401,29 +384,15 @@ export default function Home() {
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
-                  <FallbackImage
-                    sources={[
-                      "/antes-resina.JPG",
-                      "/antes-resina.jpg",
-                      "/antes-resina.jpeg",
-                      "/antesresina.JPG",
-                      "/antesresina.jpg",
-                      "/antesresina.jpeg",
-                      "/Antes-resina.JPG",
-                      "/Antes-resina.jpg",
-                      "/Antes-resina.jpeg",
-                    ]}
+                  <img
+                    src="/antes-resinaaa.JPG"
                     alt="Antes das lentes em resina"
                   />
                 </div>
 
                 <div className="casePhoto">
-                  <FallbackImage
-                    sources={[
-                      "/depois-resina.JPG",
-                      "/depois-resina.jpg",
-                      "/depois-resina.jpeg",
-                    ]}
+                  <img
+                    src="/depois-resina.JPG"
                     alt="Depois das lentes em resina"
                   />
                 </div>
@@ -576,16 +545,8 @@ export default function Home() {
             {/* CHRISTY */}
             <article className="teamCard">
               <div className="teamPhoto">
-                <FallbackImage
-                  sources={[
-                    "/christycerta.jpg",
-                    "/christycerta.JPG",
-                    "/Christycerta.jpg",
-                    "/ChristyCerta.jpg",
-                    "/dracrhis.jpg",
-                    "/dracrhis.JPG",
-                    "/dracris.jpg",
-                  ]}
+                <img
+                  src="/dracc.jpg"
                   alt="Dra. Christy Ohara"
                   className="teamZoomChristy"
                 />
@@ -596,7 +557,7 @@ export default function Home() {
               </h3>
 
               <p>
-                Lentes de Contato Dental
+                Lentes em Resina
               </p>
 
               <small>
@@ -619,7 +580,7 @@ export default function Home() {
               </h3>
 
               <p>
-                Odontologia Clínica
+                Lentes em Porcelana • Dentística
               </p>
 
               <small>
@@ -631,7 +592,7 @@ export default function Home() {
             <article className="teamCard">
               <div className="teamPhoto">
                 <img
-                  src="/dravictoria.jpeg"
+                  src="/dravv.jpeg"
                   alt="Dra. Victoria Mota"
                   className="teamZoomVictoria"
                 />
@@ -642,7 +603,7 @@ export default function Home() {
               </h3>
 
               <p>
-                Avaliações • Odontologia Clínica
+                Avaliações • Planejamento de casos
               </p>
 
               <small>
