@@ -22,6 +22,10 @@ img {
   max-width: 100%;
 }
 
+button {
+  font: inherit;
+}
+
 a {
   -webkit-tap-highlight-color: transparent;
 }
@@ -254,7 +258,9 @@ a {
 
   font-weight: 800;
 
-  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.14);
+  box-shadow:
+    0 10px 30px
+    rgba(37, 211, 102, 0.14);
 
   transition:
     transform 0.2s ease,
@@ -264,7 +270,9 @@ a {
 .cta:hover {
   transform: translateY(-2px);
 
-  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.2);
+  box-shadow:
+    0 14px 34px
+    rgba(37, 211, 102, 0.2);
 }
 
 /* =========================================================
@@ -285,15 +293,21 @@ a {
   min-height: calc(100vh - 116px);
 }
 
-.heroPhoto,
+.heroCarousel,
 .heroCopy {
   min-width: 0;
 }
 
-.heroPhoto {
+.heroCarousel {
   width: 100%;
 
   max-width: 650px;
+
+  position: relative;
+}
+
+.heroPhoto {
+  width: 100%;
 
   aspect-ratio: 4 / 5;
 
@@ -303,7 +317,9 @@ a {
 
   background: #e9ded3;
 
-  box-shadow: 0 20px 55px rgba(70, 52, 44, 0.09);
+  box-shadow:
+    0 20px 55px
+    rgba(70, 52, 44, 0.09);
 }
 
 .heroPhoto img {
@@ -315,6 +331,130 @@ a {
   object-position: center;
 
   display: block;
+
+  animation: heroImageFade 0.28s ease;
+}
+
+@keyframes heroImageFade {
+  from {
+    opacity: 0.55;
+    transform: scale(1.015);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.heroArrow {
+  position: absolute;
+
+  top: 50%;
+
+  z-index: 4;
+
+  transform: translateY(-50%);
+
+  width: 48px;
+  height: 48px;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.86);
+
+  color: #684b3c;
+
+  display: grid;
+  place-items: center;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 38px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px
+    rgba(43, 33, 28, 0.12);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.heroArrow:hover {
+  background: #ffffff;
+}
+
+.heroArrowLeft {
+  left: 18px;
+}
+
+.heroArrowRight {
+  right: 18px;
+}
+
+.heroDots {
+  position: absolute;
+
+  left: 50%;
+  bottom: 18px;
+
+  z-index: 5;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  max-width: calc(100% - 110px);
+
+  padding: 8px 12px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  backdrop-filter: blur(8px);
+}
+
+.heroDot {
+  width: 7px;
+  height: 7px;
+
+  min-width: 7px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: rgba(100, 75, 60, 0.28);
+
+  cursor: pointer;
+
+  transition:
+    width 0.2s ease,
+    background 0.2s ease;
+}
+
+.heroDotActive {
+  width: 20px;
+
+  border-radius: 999px;
+
+  background: #80533f;
 }
 
 .hero h1 {
@@ -461,7 +601,9 @@ a {
 
   text-align: center;
 
-  box-shadow: 0 15px 35px rgba(70, 40, 30, 0.18);
+  box-shadow:
+    0 15px 35px
+    rgba(70, 40, 30, 0.18);
 }
 
 .number b {
@@ -525,7 +667,8 @@ a {
 
   border-radius: 9px;
 
-  background: rgba(70, 52, 44, 0.84);
+  background:
+    rgba(70, 52, 44, 0.84);
 
   color: #ffffff;
 }
@@ -687,11 +830,7 @@ a {
   object-fit: cover;
 
   object-position: center top;
-
-  transition: transform 0.25s ease;
 }
-
-/* zoom Larissa */
 
 .teamPhoto img.teamZoomLarissa {
   transform: scale(1.16);
@@ -699,15 +838,11 @@ a {
   object-position: center 18%;
 }
 
-/* zoom Gabriela */
-
 .teamPhoto img.teamZoomGabi {
   transform: scale(1.18);
 
   object-position: center 20%;
 }
-
-/* Christy */
 
 .teamPhoto img.teamZoomChristy {
   transform: scale(1.08);
@@ -1045,7 +1180,7 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .heroPhoto {
+  .heroCarousel {
     width: min(620px, 100%);
 
     margin: auto;
@@ -1114,12 +1249,52 @@ footer {
     gap: 36px;
   }
 
+  .heroCarousel {
+    width: 100%;
+  }
+
   .heroPhoto {
     width: 100%;
 
     aspect-ratio: 4 / 5;
 
     border-radius: 22px;
+  }
+
+  .heroArrow {
+    width: 42px;
+    height: 42px;
+
+    font-size: 32px;
+  }
+
+  .heroArrowLeft {
+    left: 10px;
+  }
+
+  .heroArrowRight {
+    right: 10px;
+  }
+
+  .heroDots {
+    bottom: 12px;
+
+    max-width: calc(100% - 100px);
+
+    padding: 7px 9px;
+
+    gap: 4px;
+  }
+
+  .heroDot {
+    width: 6px;
+    height: 6px;
+
+    min-width: 6px;
+  }
+
+  .heroDotActive {
+    width: 17px;
   }
 
   .hero h1 {
