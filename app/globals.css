@@ -1,4 +1,4 @@
-=* {
+* {
   box-sizing: border-box;
 }
 
@@ -27,7 +27,9 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* HEADER */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header {
   min-height: 116px;
@@ -104,7 +106,9 @@ a {
   opacity: 0.55;
 }
 
-/* GERAL */
+/* =========================================================
+   GERAL
+========================================================= */
 
 .section,
 .method,
@@ -153,7 +157,9 @@ a {
   width: min(700px, 100%);
 }
 
-/* CTA */
+/* =========================================================
+   CTA
+========================================================= */
 
 .cta {
   display: flex;
@@ -181,7 +187,9 @@ a {
   box-shadow: 0 14px 34px rgba(37, 211, 102, 0.2);
 }
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
   display: grid;
@@ -277,6 +285,7 @@ a {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.74);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .heroDot {
@@ -311,7 +320,9 @@ a {
   line-height: 1.7;
 }
 
-/* LENTES */
+/* =========================================================
+   LENTES
+========================================================= */
 
 .trust {
   background: #ffffff;
@@ -404,7 +415,9 @@ a {
   font-size: 15px;
 }
 
-/* MÉTODO BULHÕES */
+/* =========================================================
+   MÉTODO BULHÕES
+========================================================= */
 
 .method {
   background: #ead7c8;
@@ -423,15 +436,18 @@ a {
   margin: 0 auto;
   overflow: hidden;
   border-radius: 28px;
-  background: #d6c7b6;
+  background: #d8cbbb;
   box-shadow: 0 20px 50px rgba(65, 46, 36, 0.12);
 }
 
+/* FOTO */
+
 .visagismPhoto {
   position: absolute;
-  inset: 0 auto 0 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
   width: 62%;
-  height: 100%;
   overflow: hidden;
 }
 
@@ -441,6 +457,8 @@ a {
   object-fit: cover;
   object-position: center 34%;
 }
+
+/* CARDS */
 
 .visagismCards {
   position: absolute;
@@ -459,7 +477,7 @@ a {
   min-height: 0;
   padding: 12px 16px;
   border-radius: 13px;
-  background: rgba(81, 62, 51, 0.94);
+  background: rgba(81, 62, 51, 0.95);
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -482,8 +500,10 @@ a {
 }
 
 .conceptualCard {
-  background: rgba(91, 72, 61, 0.9);
+  background: rgba(91, 72, 61, 0.92);
 }
+
+/* LINHAS */
 
 .visagismLines {
   position: absolute;
@@ -494,6 +514,20 @@ a {
   pointer-events: none;
 }
 
+.visagismLine {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.visagismPoint {
+  fill: #ffffff;
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 2;
+}
+
 .centerLine {
   max-width: 900px;
   margin: 34px auto 0;
@@ -501,7 +535,9 @@ a {
   line-height: 1.6;
 }
 
-/* RESULTADOS */
+/* =========================================================
+   RESULTADOS
+========================================================= */
 
 .results {
   background: #ffffff;
@@ -553,7 +589,9 @@ a {
   width: 100%;
 }
 
-/* EQUIPE */
+/* =========================================================
+   EQUIPE
+========================================================= */
 
 .team {
   background: #f7f2ec;
@@ -617,7 +655,9 @@ a {
   color: #89786f;
 }
 
-/* CLÍNICA */
+/* =========================================================
+   CLÍNICA
+========================================================= */
 
 .clinic {
   background: #6f4939;
@@ -681,7 +721,9 @@ a {
   margin-top: 38px;
 }
 
-/* TRATAMENTOS */
+/* =========================================================
+   TRATAMENTOS
+========================================================= */
 
 .treatments {
   background: #ffffff;
@@ -719,7 +761,9 @@ a {
   line-height: 1.5;
 }
 
-/* LOCALIZAÇÃO */
+/* =========================================================
+   LOCALIZAÇÃO
+========================================================= */
 
 .location {
   background: #f2f1ef;
@@ -787,7 +831,9 @@ a {
   text-align: center;
 }
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer {
   display: grid;
@@ -831,7 +877,9 @@ footer {
   text-decoration: underline;
 }
 
-/* WHATSAPP */
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
 .floatingWa {
   position: fixed;
@@ -849,7 +897,9 @@ footer {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* TABLET */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 1100px) {
   .header nav {
@@ -880,7 +930,9 @@ footer {
   }
 }
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 720px) {
   .header {
@@ -913,6 +965,8 @@ footer {
     padding: 58px 5%;
     scroll-margin-top: 90px;
   }
+
+  /* HERO MOBILE */
 
   .hero {
     min-height: auto;
@@ -966,6 +1020,8 @@ footer {
     letter-spacing: -1px;
   }
 
+  /* TRUST MOBILE */
+
   .trustPhoto {
     height: 460px;
   }
@@ -976,7 +1032,7 @@ footer {
     bottom: 18px;
   }
 
-  /* VISAGISMO NO MOBILE */
+  /* VISAGISMO MOBILE */
 
   .visagismStage {
     aspect-ratio: auto;
@@ -1005,8 +1061,10 @@ footer {
     bottom: auto;
     width: 100%;
     margin-top: 12px;
+
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: none;
     gap: 9px;
   }
 
@@ -1025,6 +1083,8 @@ footer {
   .visagismLines {
     display: none;
   }
+
+  /* GRIDS MOBILE */
 
   .cases,
   .treatmentGrid,
@@ -1049,6 +1109,8 @@ footer {
     height: 420px;
   }
 
+  /* MAPA MOBILE */
+
   .mapFrameWrapper {
     height: 420px;
     border-radius: 20px;
@@ -1068,6 +1130,8 @@ footer {
     padding: 14px 12px;
     font-size: 11px;
   }
+
+  /* FOOTER MOBILE */
 
   footer {
     grid-template-columns: 1fr;
