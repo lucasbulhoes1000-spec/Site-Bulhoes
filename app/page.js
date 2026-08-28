@@ -181,7 +181,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* LENTES / AUTORIDADE */}
+        {/* LENTES */}
         <section id="lentes" className="section trust">
           <div className="trustCopy">
             <p className="eyebrow">
@@ -198,9 +198,7 @@ export default function Home() {
                 Experiência em mais de 2.000 casos de lentes de contato dental
               </li>
 
-              <li>
-                Metodologia própria: Método Bulhões
-              </li>
+              <li>Metodologia própria: Método Bulhões</li>
 
               <li>
                 Acompanhamento humanizado do planejamento ao pós-procedimento
@@ -234,12 +232,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MÉTODO */}
+        {/* MÉTODO BULHÕES */}
         <section id="metodo" className="method">
           <div className="methodIntro">
-            <p className="eyebrow">
-              MÉTODO BULHÕES
-            </p>
+            <p className="eyebrow">MÉTODO BULHÕES</p>
 
             <h2>
               Cada sorriso é único. Por isso, nossa avaliação é personalizada.
@@ -254,44 +250,125 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="analysisVisual">
-            <div className="ph analysisPlaceholder">
-              <span>FOTO FRONTAL / VISAGISMO</span>
+          <div className="visagismStage">
+            <div className="visagismPhoto">
+              <img
+                src="/estela.JPG"
+                alt="Análise personalizada do sorriso pelo Método Bulhões"
+              />
             </div>
 
-            <div className="labels">
-              <div>
+            <div className="visagismCards">
+              <div className="visagismCard">
                 <b>Cor dos olhos</b>
-                <span>Leitura de harmonia e características do rosto.</span>
+                <span>
+                  Leitura de harmonia e características do rosto.
+                </span>
               </div>
 
-              <div>
+              <div className="visagismCard">
                 <b>Tom de pele</b>
-                <span>Considerado na composição estética do sorriso.</span>
+                <span>
+                  Considerado na composição estética do sorriso.
+                </span>
               </div>
 
-              <div>
+              <div className="visagismCard">
                 <b>Lábios</b>
                 <span>
                   Relação entre tonalidade, volume e exposição dentária.
                 </span>
               </div>
 
-              <div>
+              <div className="visagismCard">
                 <b>Curvatura do sorriso</b>
-                <span>Proporções e desenho em relação aos lábios.</span>
+                <span>
+                  Proporções e desenho em relação aos lábios.
+                </span>
               </div>
 
-              <div>
+              <div className="visagismCard conceptualCard">
                 <b>Personalidade</b>
-                <span>O que o paciente deseja preservar ou transmitir.</span>
+                <span>
+                  O que o paciente deseja preservar ou transmitir.
+                </span>
               </div>
 
-              <div>
+              <div className="visagismCard conceptualCard">
                 <b>Objetivo do paciente</b>
-                <span>O que deseja mudar e o que deseja manter.</span>
+                <span>
+                  O que deseja mudar e o que deseja manter.
+                </span>
               </div>
             </div>
+
+            <svg
+              className="visagismLines"
+              viewBox="0 0 1200 650"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <defs>
+                <marker
+                  id="whiteArrow"
+                  markerWidth="11"
+                  markerHeight="11"
+                  refX="8"
+                  refY="5"
+                  orient="auto"
+                  markerUnits="strokeWidth"
+                >
+                  <path
+                    d="M 0 0 L 10 5 L 0 10 z"
+                    fill="#ffffff"
+                  />
+                </marker>
+              </defs>
+
+              {/* COR DOS OLHOS -> ÍRIS */}
+              <polyline
+                points="760,79 695,79 515,211"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                markerEnd="url(#whiteArrow)"
+              />
+
+              {/* TOM DE PELE -> BOCHECHA */}
+              <polyline
+                points="760,181 690,181 540,306"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                markerEnd="url(#whiteArrow)"
+              />
+
+              {/* LÁBIOS -> LÁBIOS */}
+              <polyline
+                points="760,283 685,283 460,397"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                markerEnd="url(#whiteArrow)"
+              />
+
+              {/* CURVATURA DO SORRISO -> ARCO DO SORRISO */}
+              <polyline
+                points="760,385 682,385 505,420"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                markerEnd="url(#whiteArrow)"
+              />
+            </svg>
           </div>
 
           <p className="centerLine">
@@ -307,9 +384,7 @@ export default function Home() {
         {/* RESULTADOS */}
         <section id="resultados" className="section results">
           <div className="sectionHead">
-            <p className="eyebrow">
-              RESULTADOS
-            </p>
+            <p className="eyebrow">RESULTADOS</p>
 
             <h2>
               Transformar sorrisos é transformar vidas.
@@ -345,9 +420,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <h3>
-                Lentes em Resina
-              </h3>
+              <h3>Lentes em Resina</h3>
 
               <div className="testimonialImage">
                 <img
@@ -374,9 +447,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <h3>
-                Lentes em Porcelana
-              </h3>
+              <h3>Lentes em Porcelana</h3>
 
               <div className="testimonialImage">
                 <img
@@ -403,9 +474,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <h3>
-                Retratamento de Lentes
-              </h3>
+              <h3>Retratamento de Lentes</h3>
 
               <div className="testimonialImage">
                 <img
@@ -424,9 +493,7 @@ export default function Home() {
         {/* EQUIPE */}
         <section id="equipe" className="section team">
           <div className="sectionHead">
-            <p className="eyebrow">
-              EQUIPE
-            </p>
+            <p className="eyebrow">EQUIPE</p>
 
             <h2>
               Um sorriso bem planejado também é resultado de uma equipe que
@@ -450,17 +517,13 @@ export default function Home() {
                 />
               </div>
 
-              <h3>
-                Dra. Larissa Bulhões
-              </h3>
+              <h3>Dra. Larissa Bulhões</h3>
 
               <p>
                 Fundadora • Lentes de Contato Dental
               </p>
 
-              <small>
-                CRO XXXXX
-              </small>
+              <small>CRO XXXXX</small>
             </article>
 
             <article className="teamCard">
@@ -472,17 +535,13 @@ export default function Home() {
                 />
               </div>
 
-              <h3>
-                Dra. Gabriela Vera
-              </h3>
+              <h3>Dra. Gabriela Vera</h3>
 
               <p>
                 Periodontia • Harmonização Facial
               </p>
 
-              <small>
-                CRO XXXXX
-              </small>
+              <small>CRO XXXXX</small>
             </article>
 
             <article className="teamCard">
@@ -494,17 +553,11 @@ export default function Home() {
                 />
               </div>
 
-              <h3>
-                Dra. Christy Ohara
-              </h3>
+              <h3>Dra. Christy Ohara</h3>
 
-              <p>
-                Lentes de Contato Dental
-              </p>
+              <p>Lentes de Contato Dental</p>
 
-              <small>
-                CRO XXXXX
-              </small>
+              <small>CRO XXXXX</small>
             </article>
 
             <article className="teamCard">
@@ -516,17 +569,11 @@ export default function Home() {
                 />
               </div>
 
-              <h3>
-                Dra. Lethicia
-              </h3>
+              <h3>Dra. Lethicia</h3>
 
-              <p>
-                Odontologia Clínica
-              </p>
+              <p>Odontologia Clínica</p>
 
-              <small>
-                CRO XXXXX
-              </small>
+              <small>CRO XXXXX</small>
             </article>
           </div>
 
@@ -538,9 +585,7 @@ export default function Home() {
         {/* CLÍNICA */}
         <section id="clinica" className="clinic">
           <div className="sectionHead">
-            <p className="eyebrow">
-              A CLÍNICA
-            </p>
+            <p className="eyebrow">A CLÍNICA</p>
 
             <h2>
               Uma experiência pensada nos detalhes.
@@ -559,9 +604,7 @@ export default function Home() {
                 alt="Recepção da Bulhões Odontologia"
               />
 
-              <span>
-                RECEPÇÃO
-              </span>
+              <span>RECEPÇÃO</span>
             </div>
 
             <div className="clinicPhoto">
@@ -570,9 +613,7 @@ export default function Home() {
                 alt="Consultório da Bulhões Odontologia"
               />
 
-              <span>
-                CONSULTÓRIO
-              </span>
+              <span>CONSULTÓRIO</span>
             </div>
 
             <div className="clinicPhoto">
@@ -581,9 +622,7 @@ export default function Home() {
                 alt="Detalhes da Bulhões Odontologia"
               />
 
-              <span>
-                DETALHES
-              </span>
+              <span>DETALHES</span>
             </div>
           </div>
 
@@ -595,9 +634,7 @@ export default function Home() {
         {/* TRATAMENTOS */}
         <section id="tratamentos" className="section treatments">
           <div className="sectionHead">
-            <p className="eyebrow">
-              OUTROS CUIDADOS
-            </p>
+            <p className="eyebrow">OUTROS CUIDADOS</p>
 
             <h2>
               Um cuidado completo para o seu sorriso.
@@ -619,9 +656,7 @@ export default function Home() {
                 />
               </div>
 
-              <h3>
-                Tratamentos Clínicos
-              </h3>
+              <h3>Tratamentos Clínicos</h3>
 
               <p>
                 Saúde, prevenção e cuidado contínuo do sorriso.
@@ -636,9 +671,7 @@ export default function Home() {
                 />
               </div>
 
-              <h3>
-                Harmonização Facial
-              </h3>
+              <h3>Harmonização Facial</h3>
 
               <p>
                 Equilíbrio e harmonia facial com planejamento individualizado.
@@ -653,9 +686,7 @@ export default function Home() {
                 />
               </div>
 
-              <h3>
-                Implantes
-              </h3>
+              <h3>Implantes</h3>
 
               <p>
                 Reabilitação do sorriso unindo função e estética.
@@ -671,9 +702,7 @@ export default function Home() {
         {/* ENDEREÇO */}
         <section id="endereco" className="location">
           <div className="sectionHead locationHead">
-            <p className="eyebrow">
-              SANTOS • SP
-            </p>
+            <p className="eyebrow">SANTOS • SP</p>
 
             <h2>
               Como chegar à Bulhões?
@@ -724,7 +753,6 @@ export default function Home() {
         </section>
       </main>
 
-      {/* FOOTER */}
       <footer>
         <div className="footerBrand">
           <strong>BULHÕES</strong>
@@ -773,7 +801,6 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* WHATSAPP FLUTUANTE */}
       <a
         className="floatingWa"
         href={WHATSAPP_URL}
