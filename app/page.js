@@ -54,6 +54,36 @@ function FallbackImage({
 }
 
 export default function Home() {
+  const heroImages = [
+    "/andressa.jpeg",
+    "/antesdepoisfrente.jpeg",
+    "/antesdepoislado.jpeg",
+    "/barbara.jpeg",
+    "/barbara2.jpeg",
+    "/jac.jpeg",
+    "/maya.jpeg",
+    "/maya2.jpeg",
+    "/acho.jpeg",
+    "/robson.JPG",
+    "/carol.jpg",
+    "/outrocaso.jpeg",
+    "/beatriz.jpeg",
+  ];
+
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  const heroPrevious = () => {
+    setHeroIndex((current) =>
+      current === 0 ? heroImages.length - 1 : current - 1
+    );
+  };
+
+  const heroNext = () => {
+    setHeroIndex((current) =>
+      current === heroImages.length - 1 ? 0 : current + 1
+    );
+  };
+
   return (
     <>
       <header className="header">
@@ -86,11 +116,46 @@ export default function Home() {
       <main>
         {/* HERO */}
         <section id="inicio" className="section hero">
-          <div className="heroPhoto">
-            <img
-              src="/hero-bulhoes.png"
-              alt="Resultado de lentes de contato dental na Bulhões Odontologia"
-            />
+          <div className="heroCarousel">
+            <div className="heroPhoto">
+              <img
+                key={heroImages[heroIndex]}
+                src={heroImages[heroIndex]}
+                alt={`Caso de lentes de contato dental ${heroIndex + 1}`}
+              />
+            </div>
+
+            <button
+              type="button"
+              className="heroArrow heroArrowLeft"
+              onClick={heroPrevious}
+              aria-label="Ver caso anterior"
+            >
+              ‹
+            </button>
+
+            <button
+              type="button"
+              className="heroArrow heroArrowRight"
+              onClick={heroNext}
+              aria-label="Ver próximo caso"
+            >
+              ›
+            </button>
+
+            <div className="heroDots">
+              {heroImages.map((image, index) => (
+                <button
+                  key={image}
+                  type="button"
+                  className={`heroDot ${
+                    heroIndex === index ? "heroDotActive" : ""
+                  }`}
+                  onClick={() => setHeroIndex(index)}
+                  aria-label={`Ver caso ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="heroCopy">
@@ -137,16 +202,20 @@ export default function Home() {
               <li>
                 Experiência em mais de 2.000 casos de lentes de contato dental
               </li>
+
               <li>
                 Metodologia própria: Método Bulhões
               </li>
+
               <li>
                 Acompanhamento humanizado do planejamento ao pós-procedimento
               </li>
+
               <li>
                 Resultados naturais, planejados para aliar estética e
                 durabilidade
               </li>
+
               <li>
                 Corpo clínico multidisciplinar trabalhando de forma integrada
               </li>
@@ -158,8 +227,8 @@ export default function Home() {
           <div className="trustVisual">
             <div className="trustPhoto">
               <img
-                src="/procedimentolentes.JPG"
-                alt="Procedimento de lentes de contato dental"
+                src="/procedimentolentescerta.JPG"
+                alt="Procedimento de lentes de contato dental na Bulhões Odontologia"
               />
             </div>
 
@@ -170,7 +239,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MÉTODO */}
+        {/* MÉTODO BULHÕES */}
         <section id="metodo" className="method">
           <div className="methodIntro">
             <p className="eyebrow">
@@ -385,7 +454,7 @@ export default function Home() {
           </div>
 
           <div className="teamGrid">
-            {/* 1 - LARISSA */}
+            {/* LARISSA */}
             <article className="teamCard">
               <div className="teamPhoto">
                 <img
@@ -408,7 +477,7 @@ export default function Home() {
               </small>
             </article>
 
-            {/* 2 - GABRIELA */}
+            {/* GABRIELA */}
             <article className="teamCard">
               <div className="teamPhoto">
                 <img
@@ -431,7 +500,7 @@ export default function Home() {
               </small>
             </article>
 
-            {/* 3 - CHRISTY */}
+            {/* CHRISTY */}
             <article className="teamCard">
               <div className="teamPhoto">
                 <FallbackImage
@@ -458,7 +527,7 @@ export default function Home() {
               </small>
             </article>
 
-            {/* 4 - PRÓXIMA PROFISSIONAL */}
+            {/* PLACEHOLDER */}
             <article className="teamCard">
               <Img label="FOTO PROFISSIONAL" />
 
@@ -585,7 +654,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ENDEREÇO */}
+        {/* LOCALIZAÇÃO */}
         <section id="endereco" className="location">
           <div className="sectionHead locationHead">
             <p className="eyebrow">
@@ -641,17 +710,9 @@ export default function Home() {
 
       <footer>
         <div className="footerBrand">
-          <strong>
-            BULHÕES
-          </strong>
-
-          <span>
-            ODONTOLOGIA
-          </span>
-
-          <em>
-            Naturalidade é o nosso maior luxo.
-          </em>
+          <strong>BULHÕES</strong>
+          <span>ODONTOLOGIA</span>
+          <em>Naturalidade é o nosso maior luxo.</em>
         </div>
 
         <div>
