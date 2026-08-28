@@ -29,17 +29,6 @@ const Img = ({ label, className = "" }) => (
 );
 
 export default function Home() {
-  const team = [
-    [
-      "Dra. Larissa Bulhões",
-      "Fundadora • Lentes de Contato Dental",
-      "CRO XXXXX",
-    ],
-    ["Dra. XXXXX", "Lentes de Contato Dental", "CRO XXXXX"],
-    ["Dra. XXXXX", "Periodontia", "CRO XXXXX"],
-    ["Dra. XXXXX", "Odontologia Clínica", "CRO XXXXX"],
-  ];
-
   return (
     <>
       <header className="header">
@@ -353,15 +342,70 @@ export default function Home() {
           </div>
 
           <div className="teamGrid">
-            {team.map(([name, spec, cro], index) => (
-              <article key={`${name}-${index}`}>
-                <Img label={`FOTO PROFISSIONAL ${index + 1}`} />
+            {/* DRA LARISSA */}
+            <article className="teamCard">
+              <div className="teamPhoto">
+                <img
+                  src="/dralarissa.JPG"
+                  alt="Dra. Larissa Bulhões"
+                />
+              </div>
 
-                <h3>{name}</h3>
-                <p>{spec}</p>
-                <small>{cro}</small>
-              </article>
-            ))}
+              <h3>Dra. Larissa Bulhões</h3>
+
+              <p>
+                Fundadora • Lentes de Contato Dental
+              </p>
+
+              <small>CRO XXXXX</small>
+            </article>
+
+            {/* DRA CHRISTY */}
+            <article className="teamCard">
+              <div className="teamPhoto">
+                <img
+                  src="/dracris.jpg"
+                  alt="Dra. Christy"
+                />
+              </div>
+
+              <h3>Dra. Christy Ohara</h3>
+
+              <p>
+                Lentes de Contato Dental
+              </p>
+
+              <small>CRO XXXXX</small>
+            </article>
+
+            {/* DRA GABI */}
+            <article className="teamCard">
+              <div className="teamPhoto">
+                <img
+                  src="/dragabi.jpeg"
+                  alt="Dra. Gabriela"
+                />
+              </div>
+
+              <h3>Dra. Gabriela Vera</h3>
+
+              <p>
+                Periodontia • Harmonização Facial
+              </p>
+
+              <small>CRO XXXXX</small>
+            </article>
+
+            {/* PRÓXIMA PROFISSIONAL */}
+            <article className="teamCard">
+              <Img label="FOTO PROFISSIONAL" />
+
+              <h3>Dra. XXXXX</h3>
+
+              <p>Odontologia Clínica</p>
+
+              <small>CRO XXXXX</small>
+            </article>
           </div>
 
           <div className="center">
