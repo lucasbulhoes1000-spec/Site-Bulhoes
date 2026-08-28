@@ -142,7 +142,12 @@ export default function Home() {
           </div>
 
           <div className="trustVisual">
-            <Img label="PROCEDIMENTO / LENTES" />
+            <div className="trustPhoto">
+              <img
+                src="/procedimentolentes.JPG"
+                alt="Procedimento de lentes de contato dental na Bulhões Odontologia"
+              />
+            </div>
 
             <div className="number">
               <b>+2.000</b>
@@ -260,9 +265,11 @@ export default function Home() {
 
               <h3>Lentes em Resina</h3>
 
-              <div className="testimonial">
-                <span>◉ @paciente</span>
-                <p>Inserir print ou depoimento real da paciente.</p>
+              <div className="testimonialImage">
+                <img
+                  src="/depoimento1.png"
+                  alt="Depoimento de paciente sobre lentes em resina"
+                />
               </div>
             </article>
 
@@ -286,9 +293,11 @@ export default function Home() {
 
               <h3>Lentes em Porcelana</h3>
 
-              <div className="testimonial">
-                <span>◉ @paciente</span>
-                <p>Inserir print ou depoimento real da paciente.</p>
+              <div className="testimonialImage">
+                <img
+                  src="/depoimento2.png"
+                  alt="Depoimento de paciente sobre lentes em porcelana"
+                />
               </div>
             </article>
 
@@ -312,9 +321,11 @@ export default function Home() {
 
               <h3>Retratamento de Lentes</h3>
 
-              <div className="testimonial">
-                <span>◉ @paciente</span>
-                <p>Inserir print ou depoimento real do paciente.</p>
+              <div className="testimonialImage">
+                <img
+                  src="/depoimento3.png"
+                  alt="Depoimento de paciente sobre retratamento de lentes"
+                />
               </div>
             </article>
           </div>
@@ -407,7 +418,9 @@ export default function Home() {
 
               <h3>Tratamentos Clínicos</h3>
 
-              <p>Saúde, prevenção e cuidado contínuo do sorriso.</p>
+              <p>
+                Saúde, prevenção e cuidado contínuo do sorriso.
+              </p>
             </article>
 
             <article>
