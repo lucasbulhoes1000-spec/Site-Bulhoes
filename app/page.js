@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 
+const WHATSAPP_URL = "https://wa.me/5513996300176";
+const INSTAGRAM_URL = "https://www.instagram.com/bulhoesodontologia/";
+
 const WhatsAppIcon = ({ size = 22 }) => (
   <svg
     width={size}
@@ -17,7 +20,7 @@ const WhatsAppIcon = ({ size = 22 }) => (
 const CTA = () => (
   <a
     className="cta"
-    href="https://wa.me/55XXXXXXXXXXX"
+    href={WHATSAPP_URL}
     target="_blank"
     rel="noreferrer"
   >
@@ -46,7 +49,7 @@ function FallbackImage({ sources, alt, className = "" }) {
 export default function Home() {
   const heroImages = [
     "/hero-bulhoes.png",
-    "/cenatti.heic",
+    "/cenatti.jpg",
     "/carol.jpg",
     "/maya.jpeg",
     "/beatriz.jpeg",
@@ -485,7 +488,7 @@ export default function Home() {
             <article className="teamCard">
               <div className="teamPhoto">
                 <img
-                  src="/dracrhis.jpg"
+                  src="/christycerta.jpg"
                   alt="Dra. Christy Ohara"
                   className="teamZoomChristy"
                 />
@@ -681,6 +684,8 @@ export default function Home() {
               <br />
               Avenida Senador Feijó, 686
               <br />
+              Sala 923
+              <br />
               Vila Matias • Santos/SP
               <br />
               CEP 11015-504
@@ -719,6 +724,7 @@ export default function Home() {
         </section>
       </main>
 
+      {/* FOOTER */}
       <footer>
         <div className="footerBrand">
           <strong>BULHÕES</strong>
@@ -730,9 +736,25 @@ export default function Home() {
           <b>Contato</b>
 
           <p>
-            WhatsApp: (XX) XXXXX-XXXX
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="footerLink"
+            >
+              WhatsApp: (13) 99630-0176
+            </a>
+
             <br />
-            Instagram: @XXXXXXXX
+
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="footerLink"
+            >
+              Instagram: @bulhoesodontologia
+            </a>
           </p>
         </div>
 
@@ -742,26 +764,19 @@ export default function Home() {
           <p>
             Avenida Senador Feijó, 686
             <br />
+            Sala 923
+            <br />
             Vila Matias • Santos/SP
             <br />
             CEP 11015-504
           </p>
         </div>
-
-        <div>
-          <b>Responsável técnico</b>
-
-          <p>
-            Dr(a). XXXXX
-            <br />
-            CRO XXXXX
-          </p>
-        </div>
       </footer>
 
+      {/* WHATSAPP FLUTUANTE */}
       <a
         className="floatingWa"
-        href="https://wa.me/55XXXXXXXXXXX"
+        href={WHATSAPP_URL}
         target="_blank"
         rel="noreferrer"
         aria-label="Falar com a Bulhões pelo WhatsApp"
