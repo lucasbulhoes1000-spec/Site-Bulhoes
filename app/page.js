@@ -169,12 +169,16 @@ export default function Home() {
               combinar com você.
             </p>
 
-            <p>
+            <p className="heroMethodText">
               Por isso, desenvolvemos uma forma própria de planejar e construir
-              cada caso: o <b>Método Bulhões</b>. Um método que parte das
-              características de cada paciente para criar sorrisos com{" "}
-              <b>naturalidade, elegância e sofisticação</b>, sem padronizar
-              aquilo que torna cada pessoa única.
+              cada caso: o <b>Método Bulhões</b>.
+            </p>
+
+            <p className="heroMethodText">
+              Um método que parte das características de cada paciente para
+              criar sorrisos com{" "}
+              <b>naturalidade, elegância e sofisticação</b>. Cada sorriso é
+              único!
             </p>
 
             <CTA />
@@ -312,20 +316,20 @@ export default function Home() {
               preserveAspectRatio="none"
               aria-hidden="true"
             >
-              {/* COR DOS OLHOS -> ÍRIS */}
+              {/* OLHO - LEVEMENTE NA DIAGONAL DA ÍRIS */}
               <polyline
-                points="760,79 700,79 520,180"
+                points="760,79 700,79 545,188"
                 className="visagismLine"
               />
 
               <circle
-                cx="520"
-                cy="180"
+                cx="545"
+                cy="188"
                 r="5"
                 className="visagismPoint"
               />
 
-              {/* TOM DE PELE -> BOCHECHA */}
+              {/* TOM DE PELE - BOCHECHA */}
               <polyline
                 points="760,181 700,181 540,295"
                 className="visagismLine"
@@ -338,28 +342,28 @@ export default function Home() {
                 className="visagismPoint"
               />
 
-              {/* LÁBIOS -> REGIÃO DO LÁBIO */}
+              {/* LÁBIOS - AGORA NO LÁBIO, NÃO NOS DENTES */}
               <polyline
-                points="760,283 695,283 470,387"
+                points="760,283 695,283 430,410"
                 className="visagismLine"
               />
 
               <circle
-                cx="470"
-                cy="387"
+                cx="430"
+                cy="410"
                 r="5"
                 className="visagismPoint"
               />
 
-              {/* CURVATURA DO SORRISO -> CANTO / CURVA DO SORRISO */}
+              {/* CURVATURA - CANTO REAL DO SORRISO */}
               <polyline
-                points="760,385 695,385 510,420"
+                points="760,385 695,385 515,388"
                 className="visagismLine"
               />
 
               <circle
-                cx="510"
-                cy="420"
+                cx="515"
+                cy="388"
                 r="5"
                 className="visagismPoint"
               />
@@ -393,6 +397,7 @@ export default function Home() {
           </div>
 
           <div className="cases">
+            {/* RESINA */}
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
@@ -400,7 +405,13 @@ export default function Home() {
                     sources={[
                       "/antes-resina.JPG",
                       "/antes-resina.jpg",
+                      "/antes-resina.jpeg",
+                      "/antesresina.JPG",
+                      "/antesresina.jpg",
+                      "/antesresina.jpeg",
                       "/Antes-resina.JPG",
+                      "/Antes-resina.jpg",
+                      "/Antes-resina.jpeg",
                     ]}
                     alt="Antes das lentes em resina"
                   />
@@ -411,6 +422,7 @@ export default function Home() {
                     sources={[
                       "/depois-resina.JPG",
                       "/depois-resina.jpg",
+                      "/depois-resina.jpeg",
                     ]}
                     alt="Depois das lentes em resina"
                   />
@@ -429,6 +441,7 @@ export default function Home() {
               </div>
             </article>
 
+            {/* PORCELANA */}
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
@@ -458,6 +471,7 @@ export default function Home() {
               </div>
             </article>
 
+            {/* RETRATAMENTO */}
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
@@ -513,6 +527,7 @@ export default function Home() {
           </div>
 
           <div className="teamGrid">
+            {/* LARISSA */}
             <article className="teamCard">
               <div className="teamPhoto">
                 <img
@@ -535,6 +550,7 @@ export default function Home() {
               </small>
             </article>
 
+            {/* GABRIELA */}
             <article className="teamCard">
               <div className="teamPhoto">
                 <img
@@ -557,10 +573,19 @@ export default function Home() {
               </small>
             </article>
 
+            {/* CHRISTY */}
             <article className="teamCard">
               <div className="teamPhoto">
-                <img
-                  src="/christycerta.jpg"
+                <FallbackImage
+                  sources={[
+                    "/christycerta.jpg",
+                    "/christycerta.JPG",
+                    "/Christycerta.jpg",
+                    "/ChristyCerta.jpg",
+                    "/dracrhis.jpg",
+                    "/dracrhis.JPG",
+                    "/dracris.jpg",
+                  ]}
                   alt="Dra. Christy Ohara"
                   className="teamZoomChristy"
                 />
@@ -579,6 +604,7 @@ export default function Home() {
               </small>
             </article>
 
+            {/* LETHICIA */}
             <article className="teamCard">
               <div className="teamPhoto">
                 <img
@@ -594,6 +620,29 @@ export default function Home() {
 
               <p>
                 Odontologia Clínica
+              </p>
+
+              <small>
+                CRO XXXXX
+              </small>
+            </article>
+
+            {/* VICTORIA */}
+            <article className="teamCard">
+              <div className="teamPhoto">
+                <img
+                  src="/dravictoria.jpeg"
+                  alt="Dra. Victoria Mota"
+                  className="teamZoomVictoria"
+                />
+              </div>
+
+              <h3>
+                Dra. Victoria Mota
+              </h3>
+
+              <p>
+                Avaliações • Odontologia Clínica
               </p>
 
               <small>
@@ -740,7 +789,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ENDEREÇO */}
+        {/* LOCALIZAÇÃO */}
         <section id="endereco" className="location">
           <div className="sectionHead locationHead">
             <p className="eyebrow">
