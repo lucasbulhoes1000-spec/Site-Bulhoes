@@ -1,4 +1,5 @@
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata = {
   metadataBase: new URL("https://www.bulhoesodontologia.com.br"),
@@ -72,6 +73,7 @@ const structuredData = {
   url: "https://www.bulhoesodontologia.com.br",
   telephone: "+55 13 99630-0176",
   image: "https://www.bulhoesodontologia.com.br/hero-bulhoes.png",
+
   description:
     "Clínica odontológica em Santos especializada em lentes de contato dental, com planejamento personalizado através do Método Bulhões.",
 
@@ -98,6 +100,29 @@ export default function RootLayout({ children }) {
       <body>
         {children}
 
+        {/* GOOGLE ANALYTICS 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-M0LC765XZQ"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag(){
+              dataLayer.push(arguments);
+            }
+
+            window.gtag = gtag;
+
+            gtag('js', new Date());
+
+            gtag('config', 'G-M0LC765XZQ');
+          `}
+        </Script>
+
+        {/* DADOS ESTRUTURADOS */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
