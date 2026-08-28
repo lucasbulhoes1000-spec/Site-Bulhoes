@@ -32,11 +32,7 @@ const Img = ({ label, className = "" }) => (
   </div>
 );
 
-function FallbackImage({
-  sources,
-  alt,
-  className = "",
-}) {
+function FallbackImage({ sources, alt, className = "" }) {
   const [index, setIndex] = useState(0);
 
   return (
@@ -46,7 +42,7 @@ function FallbackImage({
       className={className}
       onError={() => {
         if (index < sources.length - 1) {
-          setIndex(index + 1);
+          setIndex((current) => current + 1);
         }
       }}
     />
@@ -55,19 +51,21 @@ function FallbackImage({
 
 export default function Home() {
   const heroImages = [
+    "/hero-bulhoes.png",
+    "/cenatti.heic",
+    "/carol.jpg",
+    "/maya.jpeg",
+    "/beatriz.jpeg",
+    "/maya2.jpeg",
+    "/robson.JPG",
+    "/jac.jpeg",
     "/andressa.jpeg",
     "/antesdepoisfrente.jpeg",
     "/antesdepoislado.jpeg",
     "/barbara.jpeg",
     "/barbara2.jpeg",
-    "/jac.jpeg",
-    "/maya.jpeg",
-    "/maya2.jpeg",
     "/acho.jpeg",
-    "/robson.JPG",
-    "/carol.jpg",
     "/outrocaso.jpeg",
-    "/beatriz.jpeg",
   ];
 
   const [heroIndex, setHeroIndex] = useState(0);
@@ -146,7 +144,7 @@ export default function Home() {
             <div className="heroDots">
               {heroImages.map((image, index) => (
                 <button
-                  key={image}
+                  key={`${image}-${index}`}
                   type="button"
                   className={`heroDot ${
                     heroIndex === index ? "heroDotActive" : ""
@@ -186,7 +184,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* AUTORIDADE */}
+        {/* AUTORIDADE / PROCEDIMENTO */}
         <section id="lentes" className="section trust">
           <div className="trustCopy">
             <p className="eyebrow">
@@ -227,7 +225,7 @@ export default function Home() {
           <div className="trustVisual">
             <div className="trustPhoto">
               <img
-                src="/procedimentolentescerta.JPG"
+                src="/carol.jpg"
                 alt="Procedimento de lentes de contato dental na Bulhões Odontologia"
               />
             </div>
@@ -349,8 +347,11 @@ export default function Home() {
                 </div>
 
                 <div className="casePhoto">
-                  <img
-                    src="/depois-resina.JPG"
+                  <FallbackImage
+                    sources={[
+                      "/depois-resina.JPG",
+                      "/depois-resina.jpg",
+                    ]}
                     alt="Depois das lentes em resina"
                   />
                 </div>
@@ -454,7 +455,7 @@ export default function Home() {
           </div>
 
           <div className="teamGrid">
-            {/* LARISSA */}
+            {/* 1 - LARISSA */}
             <article className="teamCard">
               <div className="teamPhoto">
                 <img
@@ -477,7 +478,7 @@ export default function Home() {
               </small>
             </article>
 
-            {/* GABRIELA */}
+            {/* 2 - GABRIELA */}
             <article className="teamCard">
               <div className="teamPhoto">
                 <img
@@ -500,7 +501,7 @@ export default function Home() {
               </small>
             </article>
 
-            {/* CHRISTY */}
+            {/* 3 - CHRISTY */}
             <article className="teamCard">
               <div className="teamPhoto">
                 <FallbackImage
@@ -527,7 +528,7 @@ export default function Home() {
               </small>
             </article>
 
-            {/* PLACEHOLDER */}
+            {/* 4 - PRÓXIMA PROFISSIONAL */}
             <article className="teamCard">
               <Img label="FOTO PROFISSIONAL" />
 
@@ -708,11 +709,20 @@ export default function Home() {
         </section>
       </main>
 
+      {/* FOOTER */}
       <footer>
         <div className="footerBrand">
-          <strong>BULHÕES</strong>
-          <span>ODONTOLOGIA</span>
-          <em>Naturalidade é o nosso maior luxo.</em>
+          <strong>
+            BULHÕES
+          </strong>
+
+          <span>
+            ODONTOLOGIA
+          </span>
+
+          <em>
+            Naturalidade é o nosso maior luxo.
+          </em>
         </div>
 
         <div>
@@ -748,6 +758,7 @@ export default function Home() {
         </div>
       </footer>
 
+      {/* WHATSAPP FLUTUANTE */}
       <a
         className="floatingWa"
         href="https://wa.me/55XXXXXXXXXXX"
