@@ -26,12 +26,6 @@ const CTA = () => (
   </a>
 );
 
-const Img = ({ label, className = "" }) => (
-  <div className={`ph ${className}`}>
-    <span>{label}</span>
-  </div>
-);
-
 function FallbackImage({ sources, alt, className = "" }) {
   const [index, setIndex] = useState(0);
 
@@ -184,7 +178,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* AUTORIDADE / PROCEDIMENTO */}
+        {/* LENTES / AUTORIDADE */}
         <section id="lentes" className="section trust">
           <div className="trustCopy">
             <p className="eyebrow">
@@ -226,7 +220,7 @@ export default function Home() {
             <div className="trustPhoto">
               <img
                 src="/carol.jpg"
-                alt="Procedimento de lentes de contato dental na Bulhões Odontologia"
+                alt="Procedimento de lentes de contato dental"
               />
             </div>
 
@@ -237,7 +231,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MÉTODO BULHÕES */}
+        {/* MÉTODO */}
         <section id="metodo" className="method">
           <div className="methodIntro">
             <p className="eyebrow">
@@ -250,29 +244,27 @@ export default function Home() {
 
             <p>
               Através do <b>Método Bulhões</b>, nosso planejamento considera
-              muito mais do que os dentes. Analisamos o sorriso em conjunto
-              com as características do rosto, buscando entender a imagem que
-              cada paciente deseja transmitir para construir um resultado
+              muito mais do que os dentes. Analisamos o sorriso em conjunto com
+              as características do rosto, buscando entender a imagem que cada
+              paciente deseja transmitir para construir um resultado
               verdadeiramente individual.
             </p>
           </div>
 
           <div className="analysisVisual">
-            <Img label="FOTO FRONTAL / VISAGISMO" />
+            <div className="ph analysisPlaceholder">
+              <span>FOTO FRONTAL / VISAGISMO</span>
+            </div>
 
             <div className="labels">
               <div>
                 <b>Cor dos olhos</b>
-                <span>
-                  Leitura de harmonia e características do rosto.
-                </span>
+                <span>Leitura de harmonia e características do rosto.</span>
               </div>
 
               <div>
                 <b>Tom de pele</b>
-                <span>
-                  Considerado na composição estética do sorriso.
-                </span>
+                <span>Considerado na composição estética do sorriso.</span>
               </div>
 
               <div>
@@ -284,23 +276,17 @@ export default function Home() {
 
               <div>
                 <b>Curvatura do sorriso</b>
-                <span>
-                  Proporções e desenho em relação aos lábios.
-                </span>
+                <span>Proporções e desenho em relação aos lábios.</span>
               </div>
 
               <div>
                 <b>Personalidade</b>
-                <span>
-                  O que o paciente deseja preservar ou transmitir.
-                </span>
+                <span>O que o paciente deseja preservar ou transmitir.</span>
               </div>
 
               <div>
                 <b>Objetivo do paciente</b>
-                <span>
-                  O que deseja mudar e o que deseja manter.
-                </span>
+                <span>O que deseja mudar e o que deseja manter.</span>
               </div>
             </div>
           </div>
@@ -332,7 +318,6 @@ export default function Home() {
           </div>
 
           <div className="cases">
-            {/* RESINA */}
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
@@ -364,12 +349,11 @@ export default function Home() {
               <div className="testimonialImage">
                 <img
                   src="/depoimento1.png"
-                  alt="Depoimento de paciente sobre lentes em resina"
+                  alt="Depoimento de paciente"
                 />
               </div>
             </article>
 
-            {/* PORCELANA */}
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
@@ -394,12 +378,11 @@ export default function Home() {
               <div className="testimonialImage">
                 <img
                   src="/depoimento2.png"
-                  alt="Depoimento de paciente sobre lentes em porcelana"
+                  alt="Depoimento de paciente"
                 />
               </div>
             </article>
 
-            {/* RETRATAMENTO */}
             <article className="case">
               <div className="beforeAfter">
                 <div className="casePhoto">
@@ -424,7 +407,7 @@ export default function Home() {
               <div className="testimonialImage">
                 <img
                   src="/depoimento3.png"
-                  alt="Depoimento de paciente sobre retratamento de lentes"
+                  alt="Depoimento de paciente"
                 />
               </div>
             </article>
@@ -455,7 +438,6 @@ export default function Home() {
           </div>
 
           <div className="teamGrid">
-            {/* 1 - LARISSA */}
             <article className="teamCard">
               <div className="teamPhoto">
                 <img
@@ -478,7 +460,6 @@ export default function Home() {
               </small>
             </article>
 
-            {/* 2 - GABRIELA */}
             <article className="teamCard">
               <div className="teamPhoto">
                 <img
@@ -501,15 +482,10 @@ export default function Home() {
               </small>
             </article>
 
-            {/* 3 - CHRISTY */}
             <article className="teamCard">
               <div className="teamPhoto">
-                <FallbackImage
-                  sources={[
-                    "/dracrhis.jpg",
-                    "/dracrhis.JPG",
-                    "/dracris.jpg",
-                  ]}
+                <img
+                  src="/dracrhis.jpg"
                   alt="Dra. Christy Ohara"
                   className="teamZoomChristy"
                 />
@@ -528,12 +504,17 @@ export default function Home() {
               </small>
             </article>
 
-            {/* 4 - PRÓXIMA PROFISSIONAL */}
             <article className="teamCard">
-              <Img label="FOTO PROFISSIONAL" />
+              <div className="teamPhoto">
+                <img
+                  src="/dralethicia.jpeg"
+                  alt="Dra. Lethicia"
+                  className="teamZoomLethicia"
+                />
+              </div>
 
               <h3>
-                Dra. XXXXX
+                Dra. Lethicia
               </h3>
 
               <p>
@@ -569,9 +550,38 @@ export default function Home() {
           </div>
 
           <div className="clinicGallery">
-            <Img label="RECEPÇÃO" />
-            <Img label="CONSULTÓRIO" />
-            <Img label="DETALHES DA CLÍNICA" />
+            <div className="clinicPhoto clinicPhotoMain">
+              <img
+                src="/recepcao.webp"
+                alt="Recepção da Bulhões Odontologia"
+              />
+
+              <span>
+                RECEPÇÃO
+              </span>
+            </div>
+
+            <div className="clinicPhoto">
+              <img
+                src="/consultorio.jpeg"
+                alt="Consultório da Bulhões Odontologia"
+              />
+
+              <span>
+                CONSULTÓRIO
+              </span>
+            </div>
+
+            <div className="clinicPhoto">
+              <img
+                src="/detalhes.webp"
+                alt="Detalhes da Bulhões Odontologia"
+              />
+
+              <span>
+                DETALHES
+              </span>
+            </div>
           </div>
 
           <div className="center">
@@ -602,7 +612,7 @@ export default function Home() {
               <div className="treatmentPhoto">
                 <img
                   src="/tratamentoclinico.jpg"
-                  alt="Tratamentos clínicos na Bulhões Odontologia"
+                  alt="Tratamentos clínicos"
                 />
               </div>
 
@@ -619,7 +629,7 @@ export default function Home() {
               <div className="treatmentPhoto">
                 <img
                   src="/harmonizacao-facial.PNG"
-                  alt="Harmonização facial na Bulhões Odontologia"
+                  alt="Harmonização facial"
                 />
               </div>
 
@@ -636,7 +646,7 @@ export default function Home() {
               <div className="treatmentPhoto">
                 <img
                   src="/Implantes.JPG"
-                  alt="Implantes dentários na Bulhões Odontologia"
+                  alt="Implantes dentários"
                 />
               </div>
 
@@ -655,7 +665,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* LOCALIZAÇÃO */}
+        {/* ENDEREÇO */}
         <section id="endereco" className="location">
           <div className="sectionHead locationHead">
             <p className="eyebrow">
@@ -684,7 +694,7 @@ export default function Home() {
                 src="https://www.google.com/maps?q=Avenida+Senador+Feij%C3%B3,+686,+Vila+Matias,+Santos,+SP,+11015-504&z=16&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Localização da Bulhões Odontologia em Santos"
+                title="Localização da Bulhões Odontologia"
               />
             </div>
 
@@ -709,20 +719,11 @@ export default function Home() {
         </section>
       </main>
 
-      {/* FOOTER */}
       <footer>
         <div className="footerBrand">
-          <strong>
-            BULHÕES
-          </strong>
-
-          <span>
-            ODONTOLOGIA
-          </span>
-
-          <em>
-            Naturalidade é o nosso maior luxo.
-          </em>
+          <strong>BULHÕES</strong>
+          <span>ODONTOLOGIA</span>
+          <em>Naturalidade é o nosso maior luxo.</em>
         </div>
 
         <div>
@@ -758,7 +759,6 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* WHATSAPP FLUTUANTE */}
       <a
         className="floatingWa"
         href="https://wa.me/55XXXXXXXXXXX"
