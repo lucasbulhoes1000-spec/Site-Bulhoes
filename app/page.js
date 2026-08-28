@@ -1,930 +1,642 @@
-"use client";
+const HEADERS = [
+  "click_id",
+  "data_hora",
+  "destino",
+  "origem_link",
+  "projeto",
+  "evento",
+  "click_location",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content",
+  "utm_term",
+  "fbclid",
+  "gclid",
+  "pagina",
+  "landing_page",
+  "first_referrer",
+  "nome",
+  "telefone",
+  "status_lead",
+  "venda",
+  "valor_venda",
+  "crm_id"
+];
 
-import { useState } from "react";
 
-const WHATSAPP_URL = "https://wa.me/5513996300176";
-const INSTAGRAM_URL = "https://www.instagram.com/bulhoesodontologia/";
+/* =====================================================
+   NOMES DAS ABAS
+===================================================== */
 
-const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=Avenida+Senador+Feij%C3%B3,+686,+Vila+Matias,+Santos,+SP,+11015-504";
+const ABA_LARISSA = "Larissa";
 
-const WAZE_URL =
-  "https://www.waze.com/ul?q=Avenida%20Senador%20Feij%C3%B3%2C%20686%2C%20Vila%20Matias%2C%20Santos%2C%20SP%2C%2011015-504&navigate=yes";
+const ABA_BULHOES = "Bulhões Odontologia";
 
-const trackEvent = (eventName, parameters = {}) => {
-  if (typeof window !== "undefined" && typeof window.gtag === "function") {
-    window.gtag("event", eventName, parameters);
+const ABA_SITE_INSTITUCIONAL = "Site Institucional";
+
+
+/* =====================================================
+   LOCALIZAR / PREPARAR UMA ABA
+===================================================== */
+
+function setupAba(nomeAba) {
+
+  const spreadsheet =
+    SpreadsheetApp
+      .getActiveSpreadsheet();
+
+
+  let sheet =
+    spreadsheet
+      .getSheetByName(nomeAba);
+
+
+  /*
+    Caso a aba não exista,
+    cria automaticamente.
+  */
+
+  if (!sheet) {
+
+    sheet =
+      spreadsheet
+        .insertSheet(nomeAba);
+
   }
-};
 
-const WhatsAppIcon = ({ size = 22 }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    aria-hidden="true"
-  >
-    <path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.44 2.13 11.9c0 1.75.46 3.45 1.33 4.95L2.05 22l5.28-1.38a9.9 9.9 0 0 0 4.71 1.2h.01c5.45 0 9.89-4.44 9.89-9.9a9.84 9.84 0 0 0-2.89-7.01Zm-7 15.24h-.01a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.13.82.84-3.05-.2-.31a8.16 8.16 0 0 1-1.25-4.39c0-4.51 3.68-8.18 8.2-8.18a8.13 8.13 0 0 1 5.79 2.4 8.13 8.13 0 0 1 2.39 5.8c0 4.51-3.68 8.18-8.2 8.18Zm4.49-6.13c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.79.97-.14.16-.29.19-.54.06-.25-.13-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.38-1.73-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.12.16 1.75 2.67 4.24 3.75.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z" />
-  </svg>
-);
 
-const CTA = ({ location }) => (
-  <a
-    className="cta"
-    href={WHATSAPP_URL}
-    target="_blank"
-    rel="noreferrer"
-    onClick={() =>
-      trackEvent("whatsapp_click", {
-        click_location: location,
-        link_url: WHATSAPP_URL,
-      })
+  const lastColumn =
+    Math.max(
+      sheet.getLastColumn(),
+      1
+    );
+
+
+  const currentHeaders =
+    sheet
+      .getRange(
+        1,
+        1,
+        1,
+        lastColumn
+      )
+      .getValues()[0]
+      .map(
+        value =>
+          String(value).trim()
+      );
+
+
+  /*
+    Adiciona apenas colunas que ainda
+    não existam.
+
+    Não apaga nem reorganiza dados antigos.
+  */
+
+  HEADERS.forEach(
+    header => {
+
+      if (
+        !currentHeaders.includes(header)
+      ) {
+
+        const newColumn =
+          sheet.getLastColumn() + 1;
+
+
+        sheet
+          .getRange(
+            1,
+            newColumn
+          )
+          .setValue(header);
+
+
+        currentHeaders.push(header);
+
+      }
+
     }
-  >
-    <WhatsAppIcon size={23} />
-    <span>AGENDAR AVALIAÇÃO PERSONALIZADA</span>
-  </a>
-);
+  );
 
-export default function Home() {
-  const heroImages = [
-    "/hero-bulhoes.png",
-    "/cenatti.jpg",
-    "/carol.jpg",
-    "/maya.jpeg",
-    "/beatriz.jpeg",
-    "/maya2.jpeg",
-    "/robson.JPG",
-    "/jac.jpeg",
-    "/andressa.jpeg",
-    "/antesdepoisfrente.jpeg",
-    "/antesdepoislado.jpeg",
-    "/barbara.jpeg",
-    "/barbara2.jpeg",
-    "/acho.jpeg",
-    "/outrocaso.jpeg",
-  ];
 
-  const [heroIndex, setHeroIndex] = useState(0);
+  /*
+    Formatação básica.
+  */
 
-  const heroPrevious = () => {
-    setHeroIndex((current) =>
-      current === 0 ? heroImages.length - 1 : current - 1
+  const headerRange =
+    sheet.getRange(
+      1,
+      1,
+      1,
+      sheet.getLastColumn()
     );
-  };
 
-  const heroNext = () => {
-    setHeroIndex((current) =>
-      current === heroImages.length - 1 ? 0 : current + 1
-    );
-  };
+
+  headerRange.setFontWeight("bold");
+
+  sheet.setFrozenRows(1);
+
+
+  return sheet;
+
+}
+
+
+/* =====================================================
+   CONFIGURAR TODA A PLANILHA
+===================================================== */
+
+function setupPlanilha() {
+
+  setupAba(
+    ABA_LARISSA
+  );
+
+
+  setupAba(
+    ABA_BULHOES
+  );
+
+
+  setupAba(
+    ABA_SITE_INSTITUCIONAL
+  );
+
+
+  SpreadsheetApp.flush();
+
+}
+
+
+/* =====================================================
+   IDENTIFICAR DE QUAL PROJETO VEIO O REGISTRO
+===================================================== */
+
+function identificarAba(data) {
+
+  /*
+    Primeiro verificamos um identificador explícito.
+
+    Isso impede que o site institucional seja
+    confundido com a LP da Bulhões.
+  */
+
+  const projeto =
+    String(
+      data.projeto || ""
+    )
+      .trim()
+      .toLowerCase();
+
+
+  /*
+    SITE INSTITUCIONAL
+  */
+
+  if (
+    projeto === "site_institucional"
+  ) {
+
+    return ABA_SITE_INSTITUCIONAL;
+
+  }
+
+
+  /*
+    Junta os campos que podem conter
+    o endereço da página.
+  */
+
+  const origem =
+    [
+      data.pagina || "",
+      data.landing_page || "",
+      data.origem_link || "",
+      data.projeto || ""
+    ]
+      .join(" ")
+      .toLowerCase();
+
+
+  /*
+    LP / LINK NA BIO DA BULHÕES
+
+    Essa regra continua existindo para
+    não alterar o funcionamento atual.
+  */
+
+  if (
+    origem.includes(
+      "bulhoes-odontologia"
+    ) ||
+    projeto === "bulhoes" ||
+    projeto === "lp_bulhoes" ||
+    projeto === "link_bio_bulhoes"
+  ) {
+
+    return ABA_BULHOES;
+
+  }
+
+
+  /*
+    Todo registro antigo e todo registro
+    da LP da Larissa continua indo para Larissa.
+  */
+
+  return ABA_LARISSA;
+
+}
+
+
+/* =====================================================
+   CRIAR ID CASO NÃO VENHA DO SITE
+===================================================== */
+
+function gerarClickId(prefixo) {
+
+  const agora =
+    new Date()
+      .getTime()
+      .toString(36)
+      .toUpperCase();
+
+
+  const aleatorio =
+    Math
+      .random()
+      .toString(36)
+      .substring(2, 7)
+      .toUpperCase();
+
 
   return (
-    <>
-      <header className="header">
-        <a href="#inicio" className="brand">
-          <img
-            src="/logo-bulhoes.png"
-            alt="Bulhões Odontologia"
-            className="brandSymbol"
-          />
-
-          <div className="brandText">
-            <strong>BULHÕES</strong>
-            <small>ODONTOLOGIA</small>
-            <em>Naturalidade é o nosso maior luxo.</em>
-          </div>
-        </a>
-
-        <nav>
-          <a href="#inicio">Início</a>
-          <a href="#lentes">Lentes</a>
-          <a href="#metodo">Método Bulhões</a>
-          <a href="#resultados">Resultados</a>
-          <a href="#tratamentos">Tratamentos</a>
-          <a href="#equipe">Equipe</a>
-          <a href="#clinica">Clínica</a>
-          <a href="#endereco">Endereço</a>
-        </nav>
-      </header>
-
-      <main>
-        {/* HERO */}
-        <section id="inicio" className="section hero">
-          <div className="heroCarousel">
-            <div className="heroPhoto">
-              <img
-                key={heroImages[heroIndex]}
-                src={heroImages[heroIndex]}
-                alt={`Caso de lentes de contato dental ${heroIndex + 1}`}
-              />
-            </div>
-
-            <button
-              type="button"
-              className="heroArrow heroArrowLeft"
-              onClick={heroPrevious}
-              aria-label="Ver caso anterior"
-            >
-              ‹
-            </button>
-
-            <button
-              type="button"
-              className="heroArrow heroArrowRight"
-              onClick={heroNext}
-              aria-label="Ver próximo caso"
-            >
-              ›
-            </button>
-
-            <div className="heroDots">
-              {heroImages.map((image, index) => (
-                <button
-                  key={`${image}-${index}`}
-                  type="button"
-                  className={`heroDot ${
-                    heroIndex === index ? "heroDotActive" : ""
-                  }`}
-                  onClick={() => setHeroIndex(index)}
-                  aria-label={`Ver caso ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="heroCopy">
-            <p className="eyebrow">
-              LENTES DE CONTATO DENTAL • SANTOS
-            </p>
-
-            <h1>
-              Você quer colocar lentes de contato dental, mas tem medo de ficar
-              artificial?
-            </h1>
-
-            <p>
-              Esse é um dos principais receios de quem pensa em colocar lentes
-              de contato dental: mudar o sorriso e sentir que ele deixou de
-              combinar com você.
-            </p>
-
-            <p className="heroMethodText">
-              Por isso, desenvolvemos uma forma própria de planejar e construir
-              cada caso: o <b>Método Bulhões</b>.
-            </p>
-
-            <p className="heroMethodText">
-              Um método que parte das características de cada paciente para
-              criar sorrisos com{" "}
-              <b>naturalidade, elegância e sofisticação</b>. Cada sorriso é
-              único!
-            </p>
-
-            <CTA location="hero" />
-          </div>
-        </section>
-
-        {/* LENTES */}
-        <section id="lentes" className="section trust">
-          <div className="trustCopy">
-            <p className="eyebrow">
-              LENTES DE CONTATO DENTAL
-            </p>
-
-            <h2>
-              Por que tantas pessoas confiam na Bulhões Odontologia para
-              transformar o sorriso?
-            </h2>
-
-            <ul className="checks">
-              <li>
-                Experiência em mais de 2.000 casos de lentes de contato dental
-              </li>
-
-              <li>
-                Metodologia própria: Método Bulhões
-              </li>
-
-              <li>
-                Acompanhamento humanizado do planejamento ao pós-procedimento
-              </li>
-
-              <li>
-                Resultados naturais, planejados para aliar estética e
-                durabilidade
-              </li>
-
-              <li>
-                Corpo clínico multidisciplinar trabalhando de forma integrada
-              </li>
-            </ul>
-
-            <CTA location="lentes" />
-          </div>
-
-          <div className="trustVisual">
-            <div className="trustPhoto">
-              <img
-                src="/carol.jpg"
-                alt="Procedimento de lentes de contato dental"
-              />
-            </div>
-
-            <div className="number">
-              <b>+2.000</b>
-              <span>casos de lentes realizados</span>
-            </div>
-          </div>
-        </section>
-
-        {/* MÉTODO BULHÕES */}
-        <section id="metodo" className="method">
-          <div className="methodIntro">
-            <p className="eyebrow">
-              MÉTODO BULHÕES
-            </p>
-
-            <h2>
-              Cada sorriso é único. Por isso, nossa avaliação é personalizada.
-            </h2>
-
-            <p>
-              Através do <b>Método Bulhões</b>, nosso planejamento considera
-              muito mais do que os dentes. Analisamos o sorriso em conjunto com
-              as características do rosto, buscando entender a imagem que cada
-              paciente deseja transmitir para construir um resultado
-              verdadeiramente individual.
-            </p>
-          </div>
-
-          <div className="visagismStage">
-            <div className="visagismPhoto">
-              <img
-                src="/estela.JPG"
-                alt="Análise personalizada do sorriso pelo Método Bulhões"
-              />
-            </div>
-
-            <div className="visagismCards">
-              <div className="visagismCard">
-                <b>Cor dos olhos</b>
-                <span>
-                  Leitura de harmonia e características do rosto.
-                </span>
-              </div>
-
-              <div className="visagismCard">
-                <b>Tom de pele</b>
-                <span>
-                  Considerado na composição estética do sorriso.
-                </span>
-              </div>
-
-              <div className="visagismCard">
-                <b>Lábios</b>
-                <span>
-                  Relação entre tonalidade, volume e exposição dentária.
-                </span>
-              </div>
-
-              <div className="visagismCard">
-                <b>Curvatura do sorriso</b>
-                <span>
-                  Proporções e desenho em relação aos lábios.
-                </span>
-              </div>
-
-              <div className="visagismCard conceptualCard">
-                <b>Personalidade</b>
-                <span>
-                  O que o paciente deseja preservar ou transmitir.
-                </span>
-              </div>
-
-              <div className="visagismCard conceptualCard">
-                <b>Objetivo do paciente</b>
-                <span>
-                  O que deseja mudar e o que deseja manter.
-                </span>
-              </div>
-            </div>
-
-            <svg
-              className="visagismLines"
-              viewBox="0 0 1200 650"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              {/* OLHO */}
-              <polyline
-                points="760,79 700,79 545,188"
-                className="visagismLine"
-              />
-
-              <circle
-                cx="545"
-                cy="188"
-                r="5"
-                className="visagismPoint"
-              />
-
-              {/* TOM DE PELE */}
-              <polyline
-                points="760,181 700,181 540,295"
-                className="visagismLine"
-              />
-
-              <circle
-                cx="540"
-                cy="295"
-                r="5"
-                className="visagismPoint"
-              />
-
-              {/* LÁBIOS */}
-              <polyline
-                points="760,283 695,283 430,410"
-                className="visagismLine"
-              />
-
-              <circle
-                cx="430"
-                cy="410"
-                r="5"
-                className="visagismPoint"
-              />
-
-              {/* CURVATURA */}
-              <polyline
-                points="760,385 695,385 515,388"
-                className="visagismLine"
-              />
-
-              <circle
-                cx="515"
-                cy="388"
-                r="5"
-                className="visagismPoint"
-              />
-            </svg>
-          </div>
-
-          <p className="centerLine">
-            Tudo com a expertise de uma equipe que cuida do seu sorriso com
-            precisão e atenção aos detalhes.
-          </p>
-
-          <div className="center">
-            <CTA location="metodo" />
-          </div>
-        </section>
-
-        {/* RESULTADOS */}
-        <section id="resultados" className="section results">
-          <div className="sectionHead">
-            <p className="eyebrow">
-              RESULTADOS
-            </p>
-
-            <h2>
-              Transformar sorrisos é transformar vidas.
-            </h2>
-
-            <p>
-              Conheça alguns dos sorrisos que fazem parte da nossa história.
-            </p>
-          </div>
-
-          <div className="cases">
-            {/* RESINA */}
-            <article className="case">
-              <div className="beforeAfter">
-                <div className="casePhoto">
-                  <img
-                    src="/antes-resinaaa.JPG"
-                    alt="Antes das lentes em resina"
-                  />
-                </div>
-
-                <div className="casePhoto">
-                  <img
-                    src="/depois-resina.JPG"
-                    alt="Depois das lentes em resina"
-                  />
-                </div>
-              </div>
-
-              <h3>
-                Lentes em Resina
-              </h3>
-
-              <div className="testimonialImage">
-                <img
-                  src="/depoimento1.png"
-                  alt="Depoimento de paciente"
-                />
-              </div>
-            </article>
-
-            {/* PORCELANA */}
-            <article className="case">
-              <div className="beforeAfter">
-                <div className="casePhoto">
-                  <img
-                    src="/antes-porcelana.JPG"
-                    alt="Antes das lentes em porcelana"
-                  />
-                </div>
-
-                <div className="casePhoto">
-                  <img
-                    src="/depois-porcelana.JPG"
-                    alt="Depois das lentes em porcelana"
-                  />
-                </div>
-              </div>
-
-              <h3>
-                Lentes em Porcelana
-              </h3>
-
-              <div className="testimonialImage">
-                <img
-                  src="/depoimento2.png"
-                  alt="Depoimento de paciente"
-                />
-              </div>
-            </article>
-
-            {/* RETRATAMENTO */}
-            <article className="case">
-              <div className="beforeAfter">
-                <div className="casePhoto">
-                  <img
-                    src="/resultado-retratamento-antes.JPG"
-                    alt="Antes do retratamento de lentes"
-                  />
-                </div>
-
-                <div className="casePhoto">
-                  <img
-                    src="/resultado-retratamento-depois.JPG"
-                    alt="Depois do retratamento de lentes"
-                  />
-                </div>
-              </div>
-
-              <h3>
-                Retratamento de Lentes
-              </h3>
-
-              <div className="testimonialImage">
-                <img
-                  src="/depoimento3.png"
-                  alt="Depoimento de paciente"
-                />
-              </div>
-            </article>
-          </div>
-
-          <div className="center">
-            <CTA location="resultados" />
-          </div>
-        </section>
-
-        {/* EQUIPE */}
-        <section id="equipe" className="section team">
-          <div className="sectionHead">
-            <p className="eyebrow">
-              EQUIPE
-            </p>
-
-            <h2>
-              Um sorriso bem planejado também é resultado de uma equipe que
-              olha para o todo.
-            </h2>
-
-            <p>
-              Na Bulhões, cada profissional atua dentro da sua especialidade
-              para que todas as necessidades identificadas durante o
-              planejamento possam ser cuidadas de forma integrada.
-            </p>
-          </div>
-
-          <div className="teamGrid">
-            {/* LARISSA */}
-            <article className="teamCard">
-              <div className="teamPhoto">
-                <img
-                  src="/dralarissa.JPG"
-                  alt="Dra. Larissa Bulhões"
-                  className="teamZoomLarissa"
-                />
-              </div>
-
-              <h3>
-                Dra. Larissa Bulhões
-              </h3>
-
-              <p>
-                Fundadora • Lentes de Contato Dental
-              </p>
-
-              <small>
-                CRO/SP - 129627
-              </small>
-            </article>
-
-            {/* GABRIELA */}
-            <article className="teamCard">
-              <div className="teamPhoto">
-                <img
-                  src="/dragabi.jpeg"
-                  alt="Dra. Gabriela Vera"
-                  className="teamZoomGabi"
-                />
-              </div>
-
-              <h3>
-                Dra. Gabriela Vera
-              </h3>
-
-              <p>
-                Periodontia • Harmonização Facial
-              </p>
-
-              <small>
-                CRO/SP - 129534
-              </small>
-            </article>
-
-            {/* CHRISTY */}
-            <article className="teamCard">
-              <div className="teamPhoto">
-                <img
-                  src="/dracc.jpg"
-                  alt="Dra. Christy Ohara"
-                  className="teamZoomChristy"
-                />
-              </div>
-
-              <h3>
-                Dra. Christy Ohara
-              </h3>
-
-              <p>
-                Lentes em Resina
-              </p>
-
-              <small>
-                CRO/SP - 129535
-              </small>
-            </article>
-
-            {/* LETHICIA */}
-            <article className="teamCard">
-              <div className="teamPhoto">
-                <img
-                  src="/dralethicia.jpeg"
-                  alt="Dra. Lethicia"
-                  className="teamZoomLethicia"
-                />
-              </div>
-
-              <h3>
-                Dra. Lethicia
-              </h3>
-
-              <p>
-                Lentes em Porcelana • Dentística
-              </p>
-
-              <small>
-                CRO/SP - 133385
-              </small>
-            </article>
-
-            {/* VICTORIA */}
-            <article className="teamCard">
-              <div className="teamPhoto">
-                <img
-                  src="/dravv.jpeg"
-                  alt="Dra. Victoria Mota"
-                  className="teamZoomVictoria"
-                />
-              </div>
-
-              <h3>
-                Dra. Victoria Mota
-              </h3>
-
-              <p>
-                Avaliações • Planejamento de casos
-              </p>
-
-              <small>
-                CRO/SP - 147499
-              </small>
-            </article>
-          </div>
-
-          <div className="center">
-            <CTA location="equipe" />
-          </div>
-        </section>
-
-        {/* CLÍNICA */}
-        <section id="clinica" className="clinic">
-          <div className="sectionHead">
-            <p className="eyebrow">
-              A CLÍNICA
-            </p>
-
-            <h2>
-              Uma experiência pensada nos detalhes.
-            </h2>
-
-            <p>
-              Ambientes, equipe e atendimento organizados para que cada etapa
-              seja clara, confortável e coerente com a experiência Bulhões.
-            </p>
-          </div>
-
-          <div className="clinicGallery">
-            <div className="clinicPhoto clinicPhotoMain">
-              <img
-                src="/recepcao.webp"
-                alt="Recepção da Bulhões Odontologia"
-              />
-
-              <span>
-                RECEPÇÃO
-              </span>
-            </div>
-
-            <div className="clinicPhoto">
-              <img
-                src="/consultorio.jpeg"
-                alt="Consultório da Bulhões Odontologia"
-              />
-
-              <span>
-                CONSULTÓRIO
-              </span>
-            </div>
-
-            <div className="clinicPhoto">
-              <img
-                src="/detalhes.webp"
-                alt="Detalhes da Bulhões Odontologia"
-              />
-
-              <span>
-                DETALHES
-              </span>
-            </div>
-          </div>
-
-          <div className="center">
-            <CTA location="clinica" />
-          </div>
-        </section>
-
-        {/* TRATAMENTOS */}
-        <section id="tratamentos" className="section treatments">
-          <div className="sectionHead">
-            <p className="eyebrow">
-              OUTROS CUIDADOS
-            </p>
-
-            <h2>
-              Um cuidado completo para o seu sorriso.
-            </h2>
-
-            <p>
-              Além das lentes de contato dental, a Bulhões conta com um corpo
-              clínico multidisciplinar para cuidar de outras necessidades
-              relacionadas à saúde, função e estética.
-            </p>
-          </div>
-
-          <div className="treatmentGrid">
-            <article>
-              <div className="treatmentPhoto">
-                <img
-                  src="/tratamentoclinico.jpg"
-                  alt="Tratamentos clínicos"
-                />
-              </div>
-
-              <h3>
-                Tratamentos Clínicos
-              </h3>
-
-              <p>
-                Saúde, prevenção e cuidado contínuo do sorriso.
-              </p>
-            </article>
-
-            <article>
-              <div className="treatmentPhoto">
-                <img
-                  src="/harmonizacao-facial.PNG"
-                  alt="Harmonização facial"
-                />
-              </div>
-
-              <h3>
-                Harmonização Facial
-              </h3>
-
-              <p>
-                Equilíbrio e harmonia facial com planejamento individualizado.
-              </p>
-            </article>
-
-            <article>
-              <div className="treatmentPhoto">
-                <img
-                  src="/Implantes.JPG"
-                  alt="Implantes dentários"
-                />
-              </div>
-
-              <h3>
-                Implantes
-              </h3>
-
-              <p>
-                Reabilitação do sorriso unindo função e estética.
-              </p>
-            </article>
-          </div>
-
-          <div className="center">
-            <CTA location="tratamentos" />
-          </div>
-        </section>
-
-        {/* LOCALIZAÇÃO */}
-        <section id="endereco" className="location">
-          <div className="sectionHead locationHead">
-            <p className="eyebrow">
-              SANTOS • SP
-            </p>
-
-            <h2>
-              Como chegar à Bulhões?
-            </h2>
-
-            <p>
-              <b>Bulhões Odontologia</b>
-              <br />
-              Avenida Senador Feijó, 686
-              <br />
-              Sala 923
-              <br />
-              Vila Matias • Santos/SP
-              <br />
-              CEP 11015-504
-            </p>
-          </div>
-
-          <div className="mapArea">
-            <div className="mapFrameWrapper">
-              <iframe
-                className="mapFrame"
-                src="https://www.google.com/maps?q=Avenida+Senador+Feij%C3%B3,+686,+Vila+Matias,+Santos,+SP,+11015-504&z=16&output=embed"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Localização da Bulhões Odontologia"
-              />
-            </div>
-
-            <div className="routes">
-              <a
-                href={GOOGLE_MAPS_URL}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() =>
-                  trackEvent("google_maps_click", {
-                    click_location: "endereco",
-                    link_url: GOOGLE_MAPS_URL,
-                  })
-                }
-              >
-                TRAÇAR ROTA NO GOOGLE MAPS
-              </a>
-
-              <a
-                href={WAZE_URL}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() =>
-                  trackEvent("waze_click", {
-                    click_location: "endereco",
-                    link_url: WAZE_URL,
-                  })
-                }
-              >
-                TRAÇAR ROTA NO WAZE
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      {/* FOOTER */}
-      <footer>
-        <div className="footerBrand">
-          <strong>
-            BULHÕES
-          </strong>
-
-          <span>
-            ODONTOLOGIA
-          </span>
-
-          <em>
-            Naturalidade é o nosso maior luxo.
-          </em>
-        </div>
-
-        <div>
-          <b>
-            Contato
-          </b>
-
-          <p>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="footerLink"
-              onClick={() =>
-                trackEvent("whatsapp_click", {
-                  click_location: "footer",
-                  link_url: WHATSAPP_URL,
-                })
-              }
-            >
-              WhatsApp: (13) 99630-0176
-            </a>
-
-            <br />
-
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="footerLink"
-              onClick={() =>
-                trackEvent("instagram_click", {
-                  click_location: "footer",
-                  link_url: INSTAGRAM_URL,
-                })
-              }
-            >
-              Instagram: @bulhoesodontologia
-            </a>
-          </p>
-        </div>
-
-        <div>
-          <b>
-            Endereço
-          </b>
-
-          <p>
-            Avenida Senador Feijó, 686
-            <br />
-            Sala 923
-            <br />
-            Vila Matias • Santos/SP
-            <br />
-            CEP 11015-504
-          </p>
-        </div>
-      </footer>
-
-      {/* WHATSAPP FLUTUANTE */}
-      <a
-        className="floatingWa"
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Falar com a Bulhões pelo WhatsApp"
-        onClick={() =>
-          trackEvent("whatsapp_click", {
-            click_location: "floating_button",
-            link_url: WHATSAPP_URL,
-          })
-        }
-      >
-        <WhatsAppIcon size={31} />
-      </a>
-    </>
+    prefixo +
+    "-" +
+    agora +
+    aleatorio
   );
+
+}
+
+
+/* =====================================================
+   RECEBER DADOS
+===================================================== */
+
+function doPost(e) {
+
+  try {
+
+    /*
+      Validação básica.
+    */
+
+    if (
+      !e ||
+      !e.postData ||
+      !e.postData.contents
+    ) {
+
+      throw new Error(
+        "Nenhum dado recebido."
+      );
+
+    }
+
+
+    /*
+      Dados enviados pelo site / LP.
+    */
+
+    const data =
+      JSON.parse(
+        e.postData.contents
+      );
+
+
+    /*
+      Descobre automaticamente qual aba usar.
+    */
+
+    const nomeAba =
+      identificarAba(data);
+
+
+    /*
+      Prepara apenas a aba necessária.
+    */
+
+    const sheet =
+      setupAba(nomeAba);
+
+
+    /*
+      Prefixo usado somente caso o site
+      não envie click_id.
+    */
+
+    let prefixo = "LARI";
+
+
+    if (
+      nomeAba === ABA_BULHOES
+    ) {
+
+      prefixo = "BULHOES";
+
+    }
+
+
+    if (
+      nomeAba === ABA_SITE_INSTITUCIONAL
+    ) {
+
+      prefixo = "SITE";
+
+    }
+
+
+    const clickId =
+      data.click_id ||
+      gerarClickId(prefixo);
+
+
+    /*
+      Lê a ordem REAL das colunas existentes.
+    */
+
+    const currentHeaders =
+      sheet
+        .getRange(
+          1,
+          1,
+          1,
+          sheet.getLastColumn()
+        )
+        .getValues()[0]
+        .map(
+          value =>
+            String(value).trim()
+        );
+
+
+    /*
+      Monta a nova linha de acordo
+      com os títulos existentes.
+    */
+
+    const row =
+      currentHeaders.map(
+        header => {
+
+          switch (header) {
+
+            case "click_id":
+
+              return clickId;
+
+
+            case "data_hora":
+
+              return (
+                data.data_hora ||
+                new Date().toISOString()
+              );
+
+
+            case "destino":
+
+              return (
+                data.destino ||
+                ""
+              );
+
+
+            case "origem_link":
+
+              return (
+                data.origem_link ||
+                ""
+              );
+
+
+            case "projeto":
+
+              return (
+                data.projeto ||
+                ""
+              );
+
+
+            case "evento":
+
+              return (
+                data.evento ||
+                ""
+              );
+
+
+            case "click_location":
+
+              return (
+                data.click_location ||
+                ""
+              );
+
+
+            case "utm_source":
+
+              return (
+                data.utm_source ||
+                ""
+              );
+
+
+            case "utm_medium":
+
+              return (
+                data.utm_medium ||
+                ""
+              );
+
+
+            case "utm_campaign":
+
+              return (
+                data.utm_campaign ||
+                ""
+              );
+
+
+            case "utm_content":
+
+              return (
+                data.utm_content ||
+                ""
+              );
+
+
+            case "utm_term":
+
+              return (
+                data.utm_term ||
+                ""
+              );
+
+
+            case "fbclid":
+
+              return (
+                data.fbclid ||
+                ""
+              );
+
+
+            case "gclid":
+
+              return (
+                data.gclid ||
+                ""
+              );
+
+
+            case "pagina":
+
+              return (
+                data.pagina ||
+                ""
+              );
+
+
+            case "landing_page":
+
+              return (
+                data.landing_page ||
+                ""
+              );
+
+
+            case "first_referrer":
+
+              return (
+                data.first_referrer ||
+                ""
+              );
+
+
+            case "nome":
+
+              return (
+                data.nome ||
+                ""
+              );
+
+
+            case "telefone":
+
+              return (
+                data.telefone ||
+                ""
+              );
+
+
+            case "status_lead":
+
+              return (
+                data.status_lead ||
+                ""
+              );
+
+
+            case "venda":
+
+              return (
+                data.venda ||
+                ""
+              );
+
+
+            case "valor_venda":
+
+              return (
+                data.valor_venda ||
+                ""
+              );
+
+
+            case "crm_id":
+
+              return (
+                data.crm_id ||
+                ""
+              );
+
+
+            default:
+
+              return "";
+
+          }
+
+        }
+      );
+
+
+    /*
+      Salva o registro.
+    */
+
+    sheet.appendRow(row);
+
+
+    SpreadsheetApp.flush();
+
+
+    /*
+      Retorno do Web App.
+    */
+
+    return ContentService
+      .createTextOutput(
+        JSON.stringify(
+          {
+            success: true,
+
+            click_id:
+              clickId,
+
+            aba:
+              nomeAba
+          }
+        )
+      )
+      .setMimeType(
+        ContentService.MimeType.JSON
+      );
+
+  }
+
+  catch (error) {
+
+    return ContentService
+      .createTextOutput(
+        JSON.stringify(
+          {
+            success: false,
+
+            error:
+              error.toString()
+          }
+        )
+      )
+      .setMimeType(
+        ContentService.MimeType.JSON
+      );
+
+  }
+
 }
