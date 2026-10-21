@@ -21,7 +21,7 @@ export default function Privacidade() {
 
       <p>
         A Bulhões Odontologia (CLÍNICA ODONTOLÓGICA L B LTDA, CNPJ 32.562.206/0001-00,
-        Avenida Senador Feijó, 686, Vila Mathias, Santos/SP, CEP 11015-504) respeita a
+        Avenida Senador Feijó, 686, Sala 923, Vila Mathias, Santos/SP, CEP 11015-504) respeita a
         sua privacidade. Esta política explica quais dados pessoais tratamos quando você
         fala com a gente pelo WhatsApp, preenche um formulário, visita o nosso site ou é
         atendido na clínica, por que tratamos esses dados e quais são os seus direitos,
@@ -140,7 +140,7 @@ export default function Privacidade() {
       <h2>9. Contato e encarregado de dados</h2>
       <p>
         Para qualquer dúvida sobre esta política ou sobre os seus dados, fale com o
-        encarregado de dados da Bulhões Odontologia pelo e-mail{" "}
+        encarregado de dados da Bulhões Odontologia, Lucas Bulhões, pelo e-mail{" "}
         <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
       </p>
 
