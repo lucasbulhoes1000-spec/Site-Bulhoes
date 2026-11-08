@@ -13,8 +13,77 @@ const GOOGLE_MAPS_URL =
 const WAZE_URL =
   "https://www.waze.com/ul?q=Avenida%20Senador%20Feij%C3%B3%2C%20686%2C%20Vila%20Matias%2C%20Santos%2C%20SP%2C%2011015-504&navigate=yes";
 
-const TRACKING_ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbx-2IhvdBZH2JfLGU-mSVIyub2KHbOrGukal-diPqxm0wa7YF2Uljk4HytL4wDNISf-/exec";
+/* =====================================================
+   LUME (08/11/2026): os cliques vão direto para o Lume
+   (a planilha foi desligada). O link do WhatsApp leva um
+   código invisível que liga o lead a este clique.
+===================================================== */
+const LUME_RPC =
+  "https://gcxuikfjyajlmqbqlyca.supabase.co/rest/v1/rpc/registrar_clique";
+const LUME_CHAVE =
+  "sb_publishable_OMTsAJNgLiM3wQfZrU3Q3Q_g5mvMuEc";
+const LUME_B32 =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+
+function lumeCodigo() {
+  const a = new Uint8Array(6);
+  try { window.crypto.getRandomValues(a); }
+  catch { for (let i = 0; i < 6; i++) a[i] = Math.floor(Math.random() * 256); }
+  let s = "";
+  for (let i = 0; i < 6; i++) s += LUME_B32.charAt(a[i] & 31);
+  return s;
+}
+
+function lumeInvisivel(c) {
+  let b = "";
+  for (const ch of c) {
+    const v = LUME_B32.indexOf(ch);
+    for (let k = 4; k >= 0; k--) b += ((v >> k) & 1) ? "\u2063" : "\u2062";
+  }
+  return "\u2060" + b + "\u2060";
+}
+
+function lumeRegistrar(dados) {
+  try {
+    fetch(LUME_RPC, {
+      method: "POST",
+      keepalive: true,
+      headers: {
+        "Content-Type": "application/json",
+        apikey: LUME_CHAVE,
+        Authorization: "Bearer " + LUME_CHAVE
+      },
+      body: JSON.stringify({ p: dados })
+    }).catch(() => {});
+  }
+  catch {
+    /* o clique nunca é bloqueado se o rastreamento falhar */
+  }
+}
+
+/* link do WhatsApp com o código invisível (roda antes do clique abrir o link) */
+function lumePrepararLinkWhatsApp(evento) {
+  const a =
+    evento.target && evento.target.closest
+      ? evento.target.closest('a[href*="wa.me/"]')
+      : null;
+  if (!a) return;
+  const base =
+    a.getAttribute("data-wa-base") || a.getAttribute("href");
+  a.setAttribute("data-wa-base", base);
+  const codigo = lumeCodigo();
+  window.__lumeCodigo = codigo;
+  const partes = base.split("?");
+  let texto = "";
+  if (partes[1]) {
+    const t = new URLSearchParams(partes[1]).get("text");
+    if (t) texto = t;
+  }
+  a.setAttribute(
+    "href",
+    partes[0] + "?text=" + encodeURIComponent(texto + lumeInvisivel(codigo))
+  );
+}
 
 
 /* =====================================================
@@ -351,10 +420,19 @@ function sendToSpreadsheet(
   }
 
 
+  const codigo =
+    destination === "whatsapp" && window.__lumeCodigo
+      ? window.__lumeCodigo
+      : "";
+  window.__lumeCodigo = "";
+  const base = getTrackingData();
   const payload = {
-
-    ...getTrackingData(),
-
+    ...base,
+    /* um registro por clique (o id da visita fica no começo) */
+    click_id:
+      base.click_id + "-" + Math.random().toString(36).substring(2, 6).toUpperCase(),
+    codigo:
+      codigo,
     evento:
       eventName,
 
@@ -370,39 +448,7 @@ function sendToSpreadsheet(
   };
 
 
-  try {
-
-    fetch(
-      TRACKING_ENDPOINT,
-      {
-        method: "POST",
-
-        mode: "no-cors",
-
-        keepalive: true,
-
-        headers: {
-          "Content-Type":
-            "text/plain;charset=UTF-8"
-        },
-
-        body:
-          JSON.stringify(
-            payload
-          )
-      }
-    );
-
-  }
-
-  catch {
-
-    /*
-      O clique do usuário nunca é bloqueado
-      caso o rastreamento falhe.
-    */
-
-  }
+  lumeRegistrar(payload);
 
 }
 
@@ -559,6 +605,20 @@ export default function Home() {
     () => {
 
       initializeTracking();
+
+      /* (08/11/2026) código invisível nos links do WhatsApp */
+      document.addEventListener(
+        "click",
+        lumePrepararLinkWhatsApp,
+        true
+      );
+
+      return () =>
+        document.removeEventListener(
+          "click",
+          lumePrepararLinkWhatsApp,
+          true
+        );
 
     },
     []
